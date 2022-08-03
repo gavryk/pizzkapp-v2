@@ -1,15 +1,12 @@
-import React from "react";
+import React from 'react';
+import { UIButton } from './components';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-      </header>
+    <div>
+      <UIButton>Test Button</UIButton>
     </div>
   );
-}
+};
 
 export default App;
