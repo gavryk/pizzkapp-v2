@@ -1,13 +1,12 @@
 import React from 'react';
-import { Logo, UIButton } from './components';
-import logoImg from './assets/images/pizza-logo.png';
+import { UIButton } from './components';
+import { MainLayout } from './layouts';
 
 const App = () => {
   return (
-    <div>
-      <Logo src={logoImg} alt="logo" logoText="PizzaApp" />
+    <MainLayout>
       <UIButton>Test Button</UIButton>
-    </div>
+    </MainLayout>
   );
 };
 

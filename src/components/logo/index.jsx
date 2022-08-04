@@ -1,13 +1,14 @@
+import clsx from 'clsx';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './styles.module.scss';
 
-const Logo = ({ src, alt, logoText }) => {
+const Logo = ({ src, alt, logoText, size = 'md' }) => {
   return (
-    <div className={styles.logo}>
+    <div className={clsx(styles.logo, styles[size])}>
       <Link to="/">
         <img src={src} alt={alt} />
-        <h3>{logoText}</h3>
+        <span className={styles.logoText}>{logoText}</span>
       </Link>
     </div>
   );

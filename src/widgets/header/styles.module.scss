@@ -1,0 +1,9 @@
+.header {
+  padding: var(--base--spaces--6) var(--base--spaces--10);
+  border-bottom: 1px solid var(--base--color--grey-3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
+}

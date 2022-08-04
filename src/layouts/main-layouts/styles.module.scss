@@ -1,0 +1,13 @@
+.mainWrapper {
+  width: calc(100vw - 100px);
+  height: 100%;
+  background-color: var(--base--color--white);
+  margin: var(--base--spaces--13) auto;
+  border-radius: 10px;
+  max-width: 1400px;
+
+  @media (max-width: 645px) {
+    width: calc(100vw - 30px);
+    margin-top: var(--base--spaces--5);
+  }
+}
