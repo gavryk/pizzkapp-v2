@@ -19,6 +19,15 @@ body {
   color: var(--base--color--black);
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding-bottom: var(--base--spaces--5);
+}
+
 a,
 span,
 p,
@@ -29,7 +38,6 @@ h3,
 h4,
 h5 {
   color: var(--base--color--black);
-  padding-bottom: var(--base--spaces--5);
 }
 
 h1 {

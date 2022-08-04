@@ -1,0 +1,20 @@
+.logo {
+  a {
+    display: grid;
+    grid-template-columns: var(--base--logo-size-md) 1fr;
+    align-items: center;
+    grid-gap: var(--base--spaces--3);
+    transition: all 0.3s ease-in-out;
+    img {
+      width: 100%;
+    }
+    h3 {
+      padding-bottom: 0;
+    }
+  }
+  &:hover {
+    a {
+      opacity: 0.7;
+    }
+  }
+}
