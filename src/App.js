@@ -1,6 +1,7 @@
 import React from 'react';
+import { UIDropdown } from './components';
 import { MainLayout } from './layouts';
-import { Filter, Sort } from './widgets';
+import { Filter } from './widgets';
 
 const catList = ['Meat', 'Vegetarian', 'Grill', 'Sharp', 'Closed'];
 const sortList = [
@@ -13,7 +14,7 @@ const App = () => {
   return (
     <MainLayout>
       <Filter catList={catList} />
-      <Sort sortList={sortList} />
+      <UIDropdown sortList={sortList} />
     </MainLayout>
   );
 };

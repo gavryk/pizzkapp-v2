@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import clsx from 'clsx';
 
-const Sort = React.memo(({ sortList, sortBy }) => {
+const UIDropdown = React.memo(({ sortList }) => {
   const [visibleSort, setVisibleSort] = useState(false);
   const sortRef = useRef();
 
@@ -48,4 +48,4 @@ const Sort = React.memo(({ sortList, sortBy }) => {
   );
 });
 
-export default Sort;
+export default UIDropdown;
