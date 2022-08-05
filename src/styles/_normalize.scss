@@ -16,6 +16,7 @@ html {
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+  min-height: calc(100vh - 50px);
   color: var(--base--color--black);
   background-color: var(--base--color--yellow);
 }
