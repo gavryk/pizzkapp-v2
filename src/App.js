@@ -1,11 +1,13 @@
 import React from 'react';
-import { UIButton } from './components';
 import { MainLayout } from './layouts';
+import Filter from './widgets/filter-widget';
+
+const catList = ['Meat', 'Vegetarian', 'Grill', 'Sharp', 'Closed'];
 
 const App = () => {
   return (
     <MainLayout>
-      <UIButton>Test Button</UIButton>
+      <Filter catList={catList} />
     </MainLayout>
   );
 };

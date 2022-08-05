@@ -2,7 +2,14 @@ import clsx from 'clsx';
 import React from 'react';
 import styles from './styles.module.scss';
 
-const UIButton = ({ children, color, variants = 'contained', type = 'button', ...props }) => {
+const UIButton = ({
+  children,
+  active,
+  color,
+  variants = 'contained',
+  type = 'button',
+  ...props
+}) => {
   return (
     <button
       type={type}
@@ -13,6 +20,7 @@ const UIButton = ({ children, color, variants = 'contained', type = 'button', ..
         [styles.black]: color === 'black',
         [styles.red]: color === 'red',
         [styles.green]: color === 'green',
+        [styles.active]: active,
       })}>
       {children}
     </button>

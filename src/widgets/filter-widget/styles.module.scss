@@ -1,0 +1,6 @@
+.filterWrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, auto));
+  justify-content: flex-start;
+  grid-gap: var(--base--spaces--4);
+}

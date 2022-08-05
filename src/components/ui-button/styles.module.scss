@@ -8,6 +8,18 @@
   outline: none;
   border: none;
   min-width: 100px;
+  &:hover {
+    color: var(--base--color--white);
+    a {
+      color: var(--base--color--white);
+    }
+  }
+  &.active {
+    color: var(--base--color--white);
+    a {
+      color: var(--base--color--white);
+    }
+  }
 }
 
 //Contained Variant
@@ -16,10 +28,9 @@
   background-color: var(--base--color--grey-2);
   &:hover {
     background-color: var(--base--color--black);
-    color: var(--base--color--white);
-    a {
-      color: var(--base--color--white);
-    }
+  }
+  &.active {
+    background-color: var(--base--color--black);
   }
 }
 
@@ -32,6 +43,9 @@
   &:hover {
     background-color: var(--base--color--orange-2);
   }
+  &.active {
+    background-color: var(--base--color--orange);
+  }
 }
 
 .contained.green {
@@ -42,6 +56,9 @@
   }
   &:hover {
     background-color: var(--base--color--green-2);
+  }
+  &.active {
+    background-color: var(--base--color--green);
   }
 }
 
@@ -54,6 +71,9 @@
   &:hover {
     background-color: var(--base--color--black-2);
   }
+  &.active {
+    background-color: var(--base--color--black);
+  }
 }
 
 .contained.red {
@@ -64,6 +84,9 @@
   }
   &:hover {
     background-color: var(--base--color--red-2);
+  }
+  &.active {
+    background-color: var(--base--color--red);
   }
 }
 
@@ -82,6 +105,9 @@
       color: var(--base--color--white);
     }
   }
+  &.active {
+    background-color: var(--base--color--black);
+  }
 }
 
 .outlined.orange {
@@ -97,6 +123,9 @@
     a {
       color: var(--base--color--white);
     }
+  }
+  &.active {
+    background-color: var(--base--color--orange);
   }
 }
 
@@ -114,6 +143,9 @@
       color: var(--base--color--white);
     }
   }
+  &.active {
+    background-color: var(--base--color--green);
+  }
 }
 
 .outlined.red {
@@ -129,5 +161,8 @@
     a {
       color: var(--base--color--white);
     }
+  }
+  &.active {
+    background-color: var(--base--color--red);
   }
 }
