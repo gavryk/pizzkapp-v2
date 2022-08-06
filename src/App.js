@@ -1,19 +1,16 @@
 import React from 'react';
 import { MainLayout } from './layouts';
-import { FilterWidget } from './widgets';
+import { Home } from './pages';
 
 import pizzas from './assets/db.json';
-import { UICard, UIGrid } from './components';
+import { Route, Routes } from 'react-router-dom';
 
 const App = () => {
   return (
     <MainLayout>
-      <FilterWidget />
-      <UIGrid columns="4" gap="32">
-        {pizzas.map((item) => (
-          <UICard key={item.id} {...item} />
-        ))}
-      </UIGrid>
+      <Routes>
+        <Route path="/" element={<Home items={pizzas} />} />
+      </Routes>
     </MainLayout>
   );
 };

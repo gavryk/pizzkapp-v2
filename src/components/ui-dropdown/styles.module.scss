@@ -11,17 +11,18 @@
       }
     }
   }
-  .selectSort {
-    color: var(--base--color--orange);
-    opacity: 1;
-    font-weight: 500;
-  }
+}
+
+.selectSort {
+  color: var(--base--color--orange);
+  opacity: 1;
+  font-weight: 500;
+  cursor: pointer;
+  margin-left: var(--base--spaces--2);
 }
 
 .caret {
-  cursor: pointer;
   &.caretActive {
-    cursor: pointer;
     svg {
       transform: rotate(180deg);
     }
@@ -46,7 +47,7 @@
   grid-gap: 0;
   z-index: 100;
   margin-top: var(--base--spaces--3);
-  &.visibleSortList {
+  &.visibleList {
     opacity: 1;
     visibility: visible;
   }

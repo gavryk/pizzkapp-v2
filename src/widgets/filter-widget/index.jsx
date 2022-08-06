@@ -33,7 +33,7 @@ const FilterWidget = () => {
             </UIButton>
           ))}
       </div>
-      <UIDropdown sortList={sortList} />
+      <UIDropdown list={sortList} />
     </div>
   );
 };

@@ -4,41 +4,51 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import clsx from 'clsx';
 
-const UIDropdown = React.memo(({ sortList }) => {
-  const [visibleSort, setVisibleSort] = useState(false);
+const UIDropdown = React.memo(({ list }) => {
+  const [visibleList, setVisibleList] = useState(false);
+  const [selected, setSelected] = useState(0);
   const sortRef = useRef();
+  const activeLabel = list[selected].name;
 
-  const toggleVisibleList = () => {
-    setVisibleSort(!visibleSort);
-  };
-
-  const clickOffSortPopup = (event) => {
-    let path = event.path || (event.composedPath && event.composedPath());
-    if (!path.includes(sortRef.current)) {
-      setVisibleSort(false);
-    }
+  const toggleSelectItem = (ind) => {
+    setSelected(ind);
+    setVisibleList(false);
   };
 
   useEffect(() => {
+    const clickOffSortPopup = (event) => {
+      let path = event.path || (event.composedPath && event.composedPath());
+      if (!path.includes(sortRef.current)) {
+        setVisibleList(false);
+      }
+    };
+
     document.body.addEventListener('click', clickOffSortPopup);
+
+    return () => document.body.removeEventListener('click', clickOffSortPopup);
   }, []);
 
   return (
     <div ref={sortRef} className={styles.sortWidget}>
       <div className={styles.sortLabel}>
-        <span onClick={toggleVisibleList}>
-          <b className={clsx(styles.caret, { [styles.caretActive]: visibleSort })}>
+        <span>
+          <b className={clsx(styles.caret, { [styles.caretActive]: visibleList })}>
             <FontAwesomeIcon icon={faCaretDown} />
             Sort By:
           </b>
-          <span className={styles.selectSort}>Test</span>
+          <span onClick={() => setVisibleList(!visibleList)} className={styles.selectSort}>
+            {activeLabel}
+          </span>
         </span>
       </div>
-      <ul className={clsx(styles.sortList, { [styles.visibleSortList]: visibleSort })}>
-        {sortList &&
-          sortList.map(function (el, index) {
+      <ul className={clsx(styles.sortList, { [styles.visibleList]: visibleList })}>
+        {list &&
+          list.map(function (el, index) {
             return (
-              <li key={`${el.type}_${index}`} className={clsx(styles.sortListItem)}>
+              <li
+                key={`${el.type}_${index}`}
+                onClick={() => toggleSelectItem(index)}
+                className={clsx(styles.sortListItem, { [styles.active]: selected === index })}>
                 {el.name}
               </li>
             );
