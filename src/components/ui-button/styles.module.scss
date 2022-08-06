@@ -1,4 +1,7 @@
 .uibutton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: var(--base--spaces--3);
   line-height: 1;
   border-radius: 30px;

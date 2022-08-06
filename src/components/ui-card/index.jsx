@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import UIButton from '../ui-button';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import styles from './styles.module.scss';
+import clsx from 'clsx';
 
 const UICard = ({ id, imageUrl, name, price, types, sizes, addToCart, inCartCount }) => {
+  const [activeType, setActiveType] = useState(types[0]);
+  const [activeSize, setActiveSize] = useState(0);
+
   const availableTypes = ['thin', 'traditional'];
   const availableSizes = [26, 30, 40];
+
+  const onSelectType = (ind) => {
+    setActiveType(ind);
+  };
+  const onSelectSize = (ind) => {
+    setActiveSize(ind);
+  };
 
   return (
     <div className={styles.card}>
@@ -18,12 +29,28 @@ const UICard = ({ id, imageUrl, name, price, types, sizes, addToCart, inCartCoun
       <div className={styles.cardSelector}>
         <ul>
           {availableTypes.map((type, index) => (
-            <li key={type}>{type}</li>
+            <li
+              key={type}
+              onClick={() => onSelectType(index)}
+              className={clsx({
+                [styles.active]: activeType === index,
+                [styles.disabled]: !types.includes(index),
+              })}>
+              {type}
+            </li>
           ))}
         </ul>
         <ul>
           {availableSizes.map((size, index) => (
-            <li key={size}>{size} sm</li>
+            <li
+              onClick={() => onSelectSize(index)}
+              className={clsx({
+                [styles.active]: activeSize === index,
+                [styles.disabled]: !sizes.includes(size),
+              })}
+              key={size}>
+              {size} sm
+            </li>
           ))}
         </ul>
       </div>
