@@ -1,4 +1,10 @@
-.filterWrap {
+.filterWrapper {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+
+.categoriesWrap {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, auto));
   justify-content: flex-start;
