@@ -13,10 +13,14 @@ const sortList = [
 const FilterWidget = () => {
   const [activeCat, setActiveCat] = useState(null);
 
+  const onToggleCat = (index) => {
+    setActiveCat(index);
+  };
+
   return (
     <div className={styles.filterWrapper}>
       <div className={styles.categoriesWrap}>
-        <UIButton active={activeCat === null && true} onClick={() => setActiveCat(null)}>
+        <UIButton active={activeCat === null && true} onClick={() => onToggleCat(null)}>
           All
         </UIButton>
         {catList &&
@@ -24,7 +28,7 @@ const FilterWidget = () => {
             <UIButton
               key={`${cat}_${index}`}
               active={activeCat === index && true}
-              onClick={() => setActiveCat(index)}>
+              onClick={() => onToggleCat(index)}>
               {cat}
             </UIButton>
           ))}

@@ -1,6 +1,6 @@
 .uibutton {
   padding: var(--base--spaces--3);
-  line-height: 1.2;
+  line-height: 1;
   border-radius: 30px;
   cursor: pointer;
   font-weight: 500;
@@ -8,6 +8,10 @@
   outline: none;
   border: none;
   min-width: 100px;
+  font-size: var(--base--font-size-md);
+  svg {
+    margin-right: var(--base--spaces--3);
+  }
   &:hover {
     color: var(--base--color--white);
     a {
