@@ -11,7 +11,6 @@ const UICard = ({ id, imageUrl, name, price, types, sizes, addToCart, inCartCoun
   const [activeSize, setActiveSize] = useState(0);
 
   const availableTypes = ['thin', 'traditional'];
-  const availableSizes = [26, 30, 40];
 
   return (
     <div className={styles.card}>
@@ -21,20 +20,19 @@ const UICard = ({ id, imageUrl, name, price, types, sizes, addToCart, inCartCoun
       <h5 className={styles.cardTitle}>{name}</h5>
       <div className={styles.cardSelector}>
         <ul>
-          {availableTypes.map((type, index) => (
+          {types.map((type, index) => (
             <li
               key={type}
               onClick={() => setActiveType(index)}
               className={clsx({
                 [styles.active]: activeType === index,
-                [styles.disabled]: !types.includes(index),
               })}>
-              {type}
+              {availableTypes[type]}
             </li>
           ))}
         </ul>
         <ul>
-          {availableSizes.map((size, index) => (
+          {sizes.map((size, index) => (
             <li
               onClick={() => setActiveSize(index)}
               className={clsx({

@@ -5,8 +5,6 @@ import { FilterWidget } from './widgets';
 import pizzas from './assets/db.json';
 import { UICard, UIGrid } from './components';
 
-console.log(pizzas);
-
 const App = () => {
   return (
     <MainLayout>
