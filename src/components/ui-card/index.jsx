@@ -13,13 +13,6 @@ const UICard = ({ id, imageUrl, name, price, types, sizes, addToCart, inCartCoun
   const availableTypes = ['thin', 'traditional'];
   const availableSizes = [26, 30, 40];
 
-  const onSelectType = (ind) => {
-    setActiveType(ind);
-  };
-  const onSelectSize = (ind) => {
-    setActiveSize(ind);
-  };
-
   return (
     <div className={styles.card}>
       <div className={styles.cardImage}>
@@ -31,7 +24,7 @@ const UICard = ({ id, imageUrl, name, price, types, sizes, addToCart, inCartCoun
           {availableTypes.map((type, index) => (
             <li
               key={type}
-              onClick={() => onSelectType(index)}
+              onClick={() => setActiveType(index)}
               className={clsx({
                 [styles.active]: activeType === index,
                 [styles.disabled]: !types.includes(index),
@@ -43,7 +36,7 @@ const UICard = ({ id, imageUrl, name, price, types, sizes, addToCart, inCartCoun
         <ul>
           {availableSizes.map((size, index) => (
             <li
-              onClick={() => onSelectSize(index)}
+              onClick={() => setActiveSize(index)}
               className={clsx({
                 [styles.active]: activeSize === index,
                 [styles.disabled]: !sizes.includes(size),
