@@ -1,8 +1,12 @@
-import React from 'react';
-import { UICard, UIGrid, UITitle } from '../../components';
+import React, { useState } from 'react';
+import { UICard, UIGrid, UITitle, SkeletonCard } from '../../components';
 import { FilterWidget } from '../../widgets';
 
 const Home = ({ items }) => {
+  const load = false;
+
+  const pizzas = items.map((item) => <UICard key={item.id} {...item} />);
+  const skeletons = [...new Array(8)].map((_, index) => <SkeletonCard key={index} />);
   return (
     <>
       <FilterWidget />
@@ -10,9 +14,7 @@ const Home = ({ items }) => {
         All Pizzas
       </UITitle>
       <UIGrid columns="4" gap="32">
-        {items.map((item) => (
-          <UICard key={item.id} {...item} />
-        ))}
+        {!load ? pizzas : skeletons}
       </UIGrid>
     </>
   );
