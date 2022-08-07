@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { UICard, UIGrid, UITitle, SkeletonCard } from '../../components';
 import { FilterWidget } from '../../widgets';
 
