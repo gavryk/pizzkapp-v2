@@ -25,7 +25,7 @@ const UICard = ({ id, imageUrl, name, price, types, sizes, addToCart, inCartCoun
               key={type}
               onClick={() => setActiveType(index)}
               className={clsx({
-                [styles.active]: activeType === index,
+                [styles.active]: activeType === type,
               })}>
               {availableTypes[type]}
             </li>

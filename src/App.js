@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { MainLayout } from './layouts';
 import { Home } from './pages';
-
 import { Route, Routes } from 'react-router-dom';
 import axios from 'axios';
 
