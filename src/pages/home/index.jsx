@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { UICard, UIGrid, UITitle, SkeletonCard } from '../../components';
+import { fetchPizzas } from '../../redux/actions/fetch-pizza-action';
 import { FilterWidget } from '../../widgets';
 
-const Home = ({ items }) => {
-  const load = false;
+const Home = () => {
+  const dispatch = useDispatch();
+  const { items, isLoaded } = useSelector(({ pizzas }) => pizzas);
+
+  useEffect(() => {
+    dispatch(fetchPizzas());
+  }, [dispatch]);
 
   const pizzas = items.map((item) => <UICard key={item.id} {...item} />);
   const skeletons = [...new Array(8)].map((_, index) => <SkeletonCard key={index} />);
+
   return (
     <>
       <FilterWidget />
@@ -14,7 +22,7 @@ const Home = ({ items }) => {
         All Pizzas
       </UITitle>
       <UIGrid columns="4" gap="32">
-        {!load ? pizzas : skeletons}
+        {isLoaded ? pizzas : skeletons}
       </UIGrid>
     </>
   );

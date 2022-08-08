@@ -5,3 +5,4 @@ export { default as UICard } from './ui-card/index';
 export { default as SkeletonCard } from './ui-card/skeleton-card';
 export { default as UIGrid } from './ui-grid/index';
 export { default as UITitle } from './ui-title/index';
+export { default as UISeparator } from './ui-separator/index';

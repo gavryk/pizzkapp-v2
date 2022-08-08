@@ -14,4 +14,7 @@
 
 .content {
   padding: 0 var(--base--spaces--10) var(--base--spaces--10);
+  @media (max-width: 645px) {
+    padding: 0 var(--base--spaces--4) var(--base--spaces--4);
+  }
 }

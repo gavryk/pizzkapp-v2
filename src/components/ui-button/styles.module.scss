@@ -2,27 +2,35 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--base--spaces--3) var(--base--spaces--5);
+  padding: var(--base--spaces--3) var(--base--spaces--7);
   border-radius: 30px;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 700;
   transition: all 0.3s ease-in-out;
   outline: none;
   border: none;
   min-width: 100px;
-  font-size: var(--base--font-size-md);
+  font-size: var(--base--font--size-md);
+  line-height: 1.3;
+  a,
+  span {
+    transition: all 0.3s ease-in-out;
+  }
   svg {
-    margin-right: var(--base--spaces--3);
+    margin-right: var(--base--spaces--2);
+    font-size: var(--base--font--size);
   }
   &:hover {
     color: var(--base--color--white);
-    a {
+    a,
+    span {
       color: var(--base--color--white);
     }
   }
   &.active {
     color: var(--base--color--white);
-    a {
+    a,
+    span {
       color: var(--base--color--white);
     }
   }
@@ -43,7 +51,8 @@
 .contained.orange {
   background-color: var(--base--color--orange);
   color: var(--base--color--white);
-  a {
+  a,
+  span {
     color: var(--base--color--white);
   }
   &:hover {
@@ -57,7 +66,8 @@
 .contained.green {
   background-color: var(--base--color--green);
   color: var(--base--color--white);
-  a {
+  a,
+  span {
     color: var(--base--color--white);
   }
   &:hover {
@@ -71,7 +81,8 @@
 .contained.black {
   background-color: var(--base--color--black);
   color: var(--base--color--white);
-  a {
+  a,
+  span {
     color: var(--base--color--white);
   }
   &:hover {
@@ -85,7 +96,8 @@
 .contained.red {
   background-color: var(--base--color--red);
   color: var(--base--color--white);
-  a {
+  a,
+  span {
     color: var(--base--color--white);
   }
   &:hover {
@@ -101,7 +113,8 @@
   border: 1px solid var(--base--color--black);
   background-color: var(--base--color--grey-2);
   color: var(--base--color--black);
-  a {
+  a,
+  span {
     color: var(--base--color--black);
   }
   &:hover {
@@ -120,7 +133,8 @@
   border: 1px solid var(--base--color--orange);
   background-color: var(--base--color--grey-2);
   color: var(--base--color--orange);
-  a {
+  a,
+  span {
     color: var(--base--color--orange);
   }
   &:hover {
@@ -139,7 +153,8 @@
   border: 1px solid var(--base--color--green);
   background-color: var(--base--color--grey-2);
   color: var(--base--color--green);
-  a {
+  a,
+  span {
     color: var(--base--color--green);
   }
   &:hover {
@@ -158,7 +173,8 @@
   border: 1px solid var(--base--color--red);
   background-color: var(--base--color--grey-2);
   color: var(--base--color--red);
-  a {
+  a,
+  span {
     color: var(--base--color--red);
   }
   &:hover {

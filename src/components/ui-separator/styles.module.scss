@@ -1,0 +1,14 @@
+.root {
+  display: inline-block;
+  width: 1px;
+  min-height: 100%;
+  margin: 0 var(--base--spaces--3);
+  align-self: stretch;
+  opacity: 0.4;
+  &.black {
+    background-color: var(--base--color--black);
+  }
+  &.white {
+    background-color: var(--base--color--white);
+  }
+}

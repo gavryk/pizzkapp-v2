@@ -6,4 +6,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
   flex-direction: row;
+  @media (max-width: 645px) {
+    padding: var(--base--spaces--6) var(--base--spaces--4);
+  }
 }
