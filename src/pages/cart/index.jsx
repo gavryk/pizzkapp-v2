@@ -1,9 +1,12 @@
 import React from 'react';
+import { UITitle } from '../../components';
 
 const Cart = () => {
   return (
     <div>
-      <h1>Cart</h1>
+      <UITitle variant="h2" fontWeight="bold">
+        Cart
+      </UITitle>
     </div>
   );
 };
