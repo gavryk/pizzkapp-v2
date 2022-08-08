@@ -1,6 +1,6 @@
 import React from 'react';
 import { MainLayout } from './layouts';
-import { Home } from './pages';
+import { Cart, Home } from './pages';
 import { Route, Routes } from 'react-router-dom';
 
 const App = () => {
@@ -8,6 +8,7 @@ const App = () => {
     <MainLayout>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </MainLayout>
   );
