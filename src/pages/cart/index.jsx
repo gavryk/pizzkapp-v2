@@ -1,5 +1,5 @@
 import React from 'react';
-import { UIButton, UICartTop } from '../../components';
+import { UIButton, UICartItem, UICartTop, UIGrid } from '../../components';
 import styles from '../../styles/pages/Cart.module.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -18,6 +18,18 @@ const Cart = () => {
           <span>Clear Cart</span>
         </UIButton>
       </UICartTop>
+      <UIGrid columns={1} gridGap={2}>
+        <UICartItem
+          id="test"
+          key="test1"
+          name="test"
+          type="All"
+          size="26sm"
+          price="100$"
+          totalPricePizzas="100$"
+          totalCountPizzas="2"
+        />
+      </UIGrid>
     </div>
   );
 };

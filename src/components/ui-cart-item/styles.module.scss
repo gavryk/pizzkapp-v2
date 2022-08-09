@@ -1,0 +1,113 @@
+.cartItem {
+  padding: var(--base--spaces--7) 0;
+  border-bottom: 1px solid var(--base--color--grey-5);
+  display: grid;
+  grid-template-columns: 80px 1fr 1fr 200px 40px;
+  align-items: center;
+  column-gap: var(--base--spaces--4);
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: 80px 1fr 1fr 100px 40px;
+  }
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 40px 1fr 1fr 100px 40px;
+  }
+  @media screen and (max-width: 576px) {
+    grid-template-columns: 80px 1fr 1fr 40px;
+  }
+  button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+  }
+}
+
+.cartItemImage {
+  display: block;
+  @media screen and (max-width: 576px) {
+    grid-column-start: 1;
+  }
+  img {
+    max-width: 100%;
+  }
+}
+
+.cartItemName {
+  @media screen and (max-width: 576px) {
+    grid-column-start: 2;
+    grid-column-end: 4;
+  }
+  h4 {
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 1;
+  }
+  p {
+    font-size: 18px;
+    margin-bottom: 0;
+    color: #8d8d8d;
+    @media screen and (max-width: 768px) {
+      font-size: 14px;
+    }
+  }
+}
+
+.cartItemCount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  span {
+    line-height: 1;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 10px;
+    @media screen and (max-width: 768px) {
+      font-size: 16px;
+    }
+  }
+  svg {
+    font-size: 22px;
+    color: var(--base--color--orange);
+    @media screen and (max-width: 768px) {
+      font-size: 16px;
+    }
+  }
+}
+
+.cartItemPrice {
+  span {
+    font-size: 22px;
+    font-weight: 700;
+    @media screen and (max-width: 768px) {
+      font-size: 16px;
+    }
+  }
+}
+
+.cartItemRemove {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  flex-direction: row;
+  @media screen and (max-width: 576px) {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 4;
+  }
+  .btnRemove {
+    opacity: 1;
+    svg {
+      font-size: 28px;
+      color: #8d8d8d;
+      transition: all, 0.4s ease-in-out;
+      @media screen and (max-width: 768px) {
+        font-size: 24px;
+      }
+    }
+    &:hover {
+      svg {
+        color: #000;
+      }
+    }
+  }
+}
