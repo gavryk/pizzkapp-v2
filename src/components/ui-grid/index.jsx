@@ -1,12 +1,22 @@
 import clsx from 'clsx';
-import React from 'react';
+import React, { useMemo } from 'react';
 import styles from './styles.module.scss';
 
-const UIGrid = ({ children, columns = '3', gap = '16' }) => {
+const UIGrid = ({ children, columns, gridGap }) => {
+  const optionsStyle = useMemo(() => {
+    return `
+      .${styles.gridWrapper} {
+        --grid--gap: var(--base--spaces--${gridGap});
+        --grid--count: ${columns};
+      }
+    `;
+  }, [columns, gridGap]);
+
   return (
-    <div className={clsx(styles.gridWrapper, styles[`grid_${columns}`], styles[`gap_${gap}`])}>
-      {children}
-    </div>
+    <>
+      <style jsx="true">{optionsStyle}</style>
+      <div className={clsx(styles.gridWrapper)}>{children}</div>
+    </>
   );
 };
 

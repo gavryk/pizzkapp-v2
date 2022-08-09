@@ -29,7 +29,7 @@ const UIDropdown = React.memo(({ list }) => {
   }, []);
 
   return (
-    <div ref={sortRef} className={styles.sortWidget}>
+    <div ref={sortRef} className={styles.uiDropdown}>
       <div className={styles.sortLabel}>
         <span>
           <b className={clsx(styles.caret, { [styles.caretActive]: visibleList })}>

@@ -21,7 +21,7 @@ const Home = () => {
       <UITitle variant="h2" fontWeight="bold" bottomSpace="md">
         All Pizzas
       </UITitle>
-      <UIGrid columns="4" gap="32">
+      <UIGrid columns={4} gridGap={8}>
         {isLoaded ? pizzas : skeletons}
       </UIGrid>
     </>
