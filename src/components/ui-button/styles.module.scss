@@ -36,6 +36,23 @@
   }
 }
 
+.text {
+  background-color: transparent;
+  color: var(--base--color--grey-6);
+  padding: 0;
+  a,
+  span {
+    color: var(--base--color--grey-6);
+  }
+  &:hover {
+    color: var(--base--color--black-2);
+    a,
+    span {
+      color: var(--base--color--black-2);
+    }
+  }
+}
+
 //Contained Variant
 .contained {
   color: var(--base--color--black);

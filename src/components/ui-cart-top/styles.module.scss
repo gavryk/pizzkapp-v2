@@ -1,0 +1,8 @@
+.cartTop {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--base--color--grey-5);
+  padding-bottom: var(--base--spaces--4);
+}

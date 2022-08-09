@@ -2,6 +2,8 @@
   position: relative;
   padding-bottom: var(--base--spaces--5);
   font-weight: 400;
+  display: flex;
+  align-items: center;
   &.black {
     font-weight: 900;
   }
@@ -26,5 +28,8 @@
   }
   &.sm {
     padding-bottom: var(--base--spaces--6);
+  }
+  &.none {
+    padding-bottom: 0;
   }
 }
