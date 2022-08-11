@@ -34,12 +34,14 @@ const Cart = () => {
       <UICartTotal totalCount={10} totalPrice={600} />
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Link to="/">
-          <UIButton>
+          <UIButton color="orange" variants="outlined">
             <FontAwesomeIcon icon={faChevronLeft} />
             Come Back
           </UIButton>
         </Link>
-        <UIButton>Pay Now</UIButton>
+        <UIButton color="orange" variants="contained">
+          Pay Now
+        </UIButton>
       </div>
     </div>
   );
