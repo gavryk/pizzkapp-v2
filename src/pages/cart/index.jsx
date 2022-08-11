@@ -3,7 +3,8 @@ import { UIButton, UICartItem, UICartTop, UICartTotal, UIGrid } from '../../comp
 import styles from '../../styles/pages/Cart.module.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt, faShoppingCart, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
   return (
@@ -31,6 +32,15 @@ const Cart = () => {
         />
       </UIGrid>
       <UICartTotal totalCount={10} totalPrice={600} />
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <Link to="/">
+          <UIButton>
+            <FontAwesomeIcon icon={faChevronLeft} />
+            Come Back
+          </UIButton>
+        </Link>
+        <UIButton>Pay Now</UIButton>
+      </div>
     </div>
   );
 };
