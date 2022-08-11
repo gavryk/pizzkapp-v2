@@ -6,5 +6,4 @@ export { default as SkeletonCard } from './ui-card/skeleton-card';
 export { default as UIGrid } from './ui-grid/index';
 export { default as UITitle } from './ui-title/index';
 export { default as UISeparator } from './ui-separator/index';
-export { default as UICartTop } from './ui-cart-top/index';
-export { default as UICartItem } from './ui-cart-item/index';
+export * from './ui-cart';

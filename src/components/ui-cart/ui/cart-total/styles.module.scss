@@ -1,0 +1,21 @@
+.cartTotal {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 15px;
+  padding-top: var(--base--spaces--10);
+}
+.count,
+.price {
+  span {
+    font-size: 22px;
+    &.count {
+      font-weight: 700;
+    }
+    &.price {
+      font-weight: 700;
+      color: var(--base--color--black);
+    }
+  }
+}

@@ -18,11 +18,11 @@ const UICartItem = ({ imgUrl, name, type, size, totalCountPizzas, totalPricePizz
         </p>
       </div>
       <div className={styles.cartItemCount}>
-        <button className="btn-minus">
+        <button>
           <FontAwesomeIcon icon={faMinusCircle} />
         </button>
         <span>{totalCountPizzas}</span>
-        <button className="btn-plus">
+        <button>
           <FontAwesomeIcon icon={faPlusCircle} />
         </button>
       </div>

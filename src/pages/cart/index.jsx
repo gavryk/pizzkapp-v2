@@ -1,5 +1,5 @@
 import React from 'react';
-import { UIButton, UICartItem, UICartTop, UIGrid } from '../../components';
+import { UIButton, UICartItem, UICartTop, UICartTotal, UIGrid } from '../../components';
 import styles from '../../styles/pages/Cart.module.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -30,6 +30,7 @@ const Cart = () => {
           totalCountPizzas="2"
         />
       </UIGrid>
+      <UICartTotal totalCount={10} totalPrice={600} />
     </div>
   );
 };

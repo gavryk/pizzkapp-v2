@@ -1,5 +1,6 @@
 import React from 'react';
-import UITitle from '../ui-title';
+import UITitle from '../../../ui-title';
+
 import styles from './styles.module.scss';
 
 const UICartTop = ({ title, titleIcon, children }) => {
