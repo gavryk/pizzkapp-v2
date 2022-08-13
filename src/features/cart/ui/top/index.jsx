@@ -1,9 +1,9 @@
 import React from 'react';
-import UITitle from '../../../ui-title';
+import UITitle from '../../../../components/ui-title';
 
 import styles from './styles.module.scss';
 
-const UICartTop = ({ title, titleIcon, children }) => {
+const CartTop = ({ title, titleIcon, children }) => {
   return (
     <div className={styles.cartTop}>
       <UITitle variant="h3" fontWeight="bold" bottomSpace="none">
@@ -15,4 +15,4 @@ const UICartTop = ({ title, titleIcon, children }) => {
   );
 };
 
-export default UICartTop;
+export default CartTop;

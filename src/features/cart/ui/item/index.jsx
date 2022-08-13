@@ -5,7 +5,7 @@ import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { faMinusCircle } from '@fortawesome/free-solid-svg-icons';
 import styles from './styles.module.scss';
 
-const UICartItem = ({ imgUrl, name, type, size, totalCountPizzas, totalPricePizzas }) => {
+const CartItem = ({ imgUrl, name, type, size, totalCountPizzas, totalPricePizzas }) => {
   return (
     <div className={styles.cartItem}>
       <div className={styles.cartItemImage}>
@@ -38,4 +38,4 @@ const UICartItem = ({ imgUrl, name, type, size, totalCountPizzas, totalPricePizz
   );
 };
 
-export default UICartItem;
+export default CartItem;
