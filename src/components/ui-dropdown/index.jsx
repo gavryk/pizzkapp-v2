@@ -4,14 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import clsx from 'clsx';
 
-const UIDropdown = React.memo(({ list }) => {
+const UIDropdown = React.memo(({ list, selected, onSetSort }) => {
   const [visibleList, setVisibleList] = useState(false);
-  const [selected, setSelected] = useState(0);
   const sortRef = useRef();
-  const activeLabel = list[selected].name;
+  const activeLabel = list.find((obj) => obj.type === selected).name;
 
-  const toggleSelectItem = (ind) => {
-    setSelected(ind);
+  const toggleSelectItem = (type) => {
+    onSetSort(type);
     setVisibleList(false);
   };
 
@@ -47,7 +46,7 @@ const UIDropdown = React.memo(({ list }) => {
             return (
               <li
                 key={`${el.type}_${index}`}
-                onClick={() => toggleSelectItem(index)}
+                onClick={() => toggleSelectItem(el)}
                 className={clsx(styles.sortListItem, { [styles.active]: selected === index })}>
                 {el.name}
               </li>

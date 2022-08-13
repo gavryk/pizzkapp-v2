@@ -1,10 +1,15 @@
 import axios from 'axios';
 
-export const fetchPizzas = () => {
+const dbmock = 'https://62f6ca0ba3bce3eed7c7ca7a.mockapi.io';
+
+export const fetchPizzas = (category, sortBy) => {
+  let catQuery = category !== null ? `category=${category}&` : '';
   return (dispatch) => {
-    axios.get('https://62f6ca0ba3bce3eed7c7ca7a.mockapi.io/pizzas').then(({ data }) => {
-      dispatch(setPizzas(data));
-    });
+    axios
+      .get(`${dbmock}/pizzas?${catQuery}sortBy=${sortBy.type}&order=${sortBy.order}`)
+      .then(({ data }) => {
+        dispatch(setPizzas(data));
+      });
   };
 };
 

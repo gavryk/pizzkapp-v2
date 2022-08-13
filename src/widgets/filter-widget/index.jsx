@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { UIButton, UIDropdown } from '../../components';
+import { setSortBy } from '../../redux/actions/filter-pizza-action';
 import styles from './styles.module.scss';
 
 const catList = ['Meat', 'Vegetarian', 'Grill', 'Sharp', 'Closed'];
@@ -10,11 +12,16 @@ const sortList = [
   { name: 'Alphabet', type: 'name', order: 'asc' },
 ];
 
-const FilterWidget = () => {
+const FilterWidget = ({ sortBy }) => {
+  const dispatch = useDispatch();
   const [activeCat, setActiveCat] = useState(null);
 
   const onToggleCat = (index) => {
     setActiveCat(index);
+  };
+
+  const selectSortHandler = (type) => {
+    dispatch(setSortBy(type));
   };
 
   return (
@@ -33,7 +40,7 @@ const FilterWidget = () => {
             </UIButton>
           ))}
       </div>
-      <UIDropdown list={sortList} />
+      <UIDropdown onSetSort={selectSortHandler} list={sortList} selected={sortBy} />
     </div>
   );
 };

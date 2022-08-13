@@ -7,17 +7,18 @@ import { FilterWidget } from '../../widgets';
 const Home = () => {
   const dispatch = useDispatch();
   const { items, isLoaded } = useSelector(({ pizzas }) => pizzas);
+  const { category, sortBy } = useSelector(({ filters }) => filters);
 
   useEffect(() => {
-    dispatch(fetchPizzas());
-  }, [dispatch]);
+    dispatch(fetchPizzas(category, sortBy));
+  }, [dispatch, category, sortBy]);
 
   const pizzas = items.map((item) => <UICard key={item.id} {...item} />);
   const skeletons = [...new Array(8)].map((_, index) => <SkeletonCard key={index} />);
 
   return (
     <>
-      <FilterWidget />
+      <FilterWidget sortBy={sortBy.type} />
       <UITitle variant="h2" fontWeight="bold" bottomSpace="md">
         All Pizzas
       </UITitle>
