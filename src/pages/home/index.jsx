@@ -18,7 +18,7 @@ const Home = () => {
 
   return (
     <>
-      <FilterWidget sortBy={sortBy.type} />
+      <FilterWidget sortBy={sortBy.type} category={category} />
       <UITitle variant="h2" fontWeight="bold" bottomSpace="md">
         All Pizzas
       </UITitle>

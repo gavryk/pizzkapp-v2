@@ -6,8 +6,8 @@ import clsx from 'clsx';
 
 const UIDropdown = React.memo(({ list, selected, onSetSort }) => {
   const [visibleList, setVisibleList] = useState(false);
-  const sortRef = useRef();
   const activeLabel = list.find((obj) => obj.type === selected).name;
+  const sortRef = useRef();
 
   const toggleSelectItem = (type) => {
     onSetSort(type);

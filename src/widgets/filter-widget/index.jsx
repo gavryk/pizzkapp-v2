@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { UIButton, UIDropdown } from '../../components';
-import { setSortBy } from '../../redux/actions/filter-pizza-action';
+import { setCategory, setSortBy } from '../../redux/actions/filter-pizza-action';
 import styles from './styles.module.scss';
 
 const catList = ['Meat', 'Vegetarian', 'Grill', 'Sharp', 'Closed'];
@@ -12,12 +12,11 @@ const sortList = [
   { name: 'Alphabet', type: 'name', order: 'asc' },
 ];
 
-const FilterWidget = ({ sortBy }) => {
+const FilterWidget = ({ sortBy, category }) => {
   const dispatch = useDispatch();
-  const [activeCat, setActiveCat] = useState(null);
 
-  const onToggleCat = (index) => {
-    setActiveCat(index);
+  const selectCatHandler = (index) => {
+    dispatch(setCategory(index));
   };
 
   const selectSortHandler = (type) => {
@@ -27,15 +26,15 @@ const FilterWidget = ({ sortBy }) => {
   return (
     <div className={styles.filterWrapper}>
       <div className={styles.categoriesWrap}>
-        <UIButton active={activeCat === null && true} onClick={() => onToggleCat(null)}>
+        <UIButton active={category === null && true} onClick={() => selectCatHandler(null)}>
           All
         </UIButton>
         {catList &&
           catList.map((cat, index) => (
             <UIButton
               key={`${cat}_${index}`}
-              active={activeCat === index && true}
-              onClick={() => onToggleCat(index)}>
+              active={category === index && true}
+              onClick={() => selectCatHandler(index)}>
               {cat}
             </UIButton>
           ))}
