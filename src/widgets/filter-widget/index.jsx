@@ -10,25 +10,27 @@ const sortList = [
   { name: 'Alphabet', type: 'name', order: 'asc' },
 ];
 
-const FilterWidget = ({ sortBy, category, onCategory, onSort }) => {
+const FilterWidget = ({ sortBy, category, onCategory, onSort, bgColor = '#fff' }) => {
   return (
-    <div className={styles.filterWrapper}>
-      <div className={styles.categoriesWrap}>
-        <UIButton active={category === null && true} onClick={() => onCategory(null)}>
-          All
-        </UIButton>
-        {catList &&
-          catList.map((cat, index) => (
-            <UIButton
-              key={`${cat}_${index}`}
-              active={category === index && true}
-              onClick={() => onCategory(index)}>
-              {cat}
-            </UIButton>
-          ))}
+    <>
+      <div className={styles.filterWrapper} style={{ backgroundColor: bgColor }}>
+        <div className={styles.categoriesWrap}>
+          <UIButton active={category === null && true} onClick={() => onCategory(null)}>
+            All
+          </UIButton>
+          {catList &&
+            catList.map((cat, index) => (
+              <UIButton
+                key={`${cat}_${index}`}
+                active={category === index && true}
+                onClick={() => onCategory(index)}>
+                {cat}
+              </UIButton>
+            ))}
+        </div>
+        <UIDropdown onSetSort={onSort} list={sortList} selected={sortBy} />
       </div>
-      <UIDropdown onSetSort={onSort} list={sortList} selected={sortBy} />
-    </div>
+    </>
   );
 };
 
