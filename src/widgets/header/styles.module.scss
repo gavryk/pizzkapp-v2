@@ -10,4 +10,10 @@
   @media (max-width: 645px) {
     padding: var(--base--spaces--6) var(--base--spaces--4);
   }
+  .leftHeader {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    grid-gap: 15px;
+  }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Logo, UIButton, UISeparator } from '../../components';
+import { Logo, UIButton, UIInput, UISeparator } from '../../components';
 import logoImg from '../../assets/images/pizza-logo.png';
 import styles from './styles.module.scss';
 import { Link } from 'react-router-dom';
@@ -10,7 +10,10 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 const Header = () => {
   return (
     <header className={styles.header}>
-      <Logo src={logoImg} alt="logo" logoText="PizzaApp" link="/" />
+      <div className={styles.leftHeader}>
+        <Logo src={logoImg} alt="logo" logoText="PizzaApp" link="/" />
+        <UIInput type="search" />
+      </div>
       <Link to="/cart">
         <UIButton color="orange">
           <span>0 &#8372;</span>

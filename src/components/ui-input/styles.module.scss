@@ -1,0 +1,9 @@
+.uiInput {
+  position: relative;
+  .input {
+    border: 1px solid var(--base--color--grey-5);
+    background-color: #fff;
+    min-height: 30px;
+    padding: 10px 15px;
+  }
+}
