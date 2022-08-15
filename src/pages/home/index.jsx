@@ -28,7 +28,7 @@ const Home = () => {
   return (
     <>
       <FilterWidget
-        sortBy={sortBy.type}
+        sortBy={sortBy}
         category={category}
         onCategory={selectCatHandler}
         onSort={selectSortHandler}

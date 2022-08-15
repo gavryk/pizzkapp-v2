@@ -1,6 +1,7 @@
 const initState = {
   category: null,
   sortBy: {
+    name: 'Popular (DESC)',
     type: 'rating',
     order: 'desc',
   },

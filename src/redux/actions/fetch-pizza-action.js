@@ -7,7 +7,9 @@ export const fetchPizzas = (category, sortBy) => {
   return (dispatch) => {
     dispatch(setLoading(false));
     axios
-      .get(`${dbmock}/pizzas?${catQuery}sortBy=${sortBy.type}&order=${sortBy.order}`)
+      .get(
+        `${dbmock}/pizzas?${catQuery}sortBy=${sortBy.type.replace('-', '')}&order=${sortBy.order}`,
+      )
       .then(({ data }) => {
         dispatch(setPizzas(data));
         dispatch(setLoading(true));

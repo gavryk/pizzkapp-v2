@@ -6,7 +6,6 @@ import clsx from 'clsx';
 
 const UIDropdown = React.memo(({ list, selected, onSetSort }) => {
   const [visibleList, setVisibleList] = useState(false);
-  const activeLabel = list.find((obj) => obj.type === selected).name;
   const sortRef = useRef();
 
   const toggleSelectItem = (type) => {
@@ -36,18 +35,20 @@ const UIDropdown = React.memo(({ list, selected, onSetSort }) => {
             Sort By:
           </b>
           <span onClick={() => setVisibleList(!visibleList)} className={styles.selectSort}>
-            {activeLabel}
+            {selected.name}
           </span>
         </span>
       </div>
       <ul className={clsx(styles.sortList, { [styles.visibleList]: visibleList })}>
         {list &&
-          list.map(function (el, index) {
+          list.map((el, index) => {
             return (
               <li
                 key={`${el.type}_${index}`}
                 onClick={() => toggleSelectItem(el)}
-                className={clsx(styles.sortListItem, { [styles.active]: selected === index })}>
+                className={clsx(styles.sortListItem, {
+                  [styles.active]: selected.type === el.type,
+                })}>
                 {el.name}
               </li>
             );

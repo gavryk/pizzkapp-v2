@@ -5,9 +5,12 @@ import styles from './styles.module.scss';
 const catList = ['Meat', 'Vegetarian', 'Grill', 'Sharp', 'Closed'];
 
 const sortList = [
-  { name: 'Popular', type: 'rating', order: 'desc' },
-  { name: 'Price', type: 'price', order: 'desc' },
-  { name: 'Alphabet', type: 'name', order: 'asc' },
+  { name: 'Popular (DESC)', type: 'rating', order: 'desc' },
+  { name: 'Popular (ASC)', type: '-rating', order: 'asc' },
+  { name: 'Price (DESC)', type: 'price', order: 'desc' },
+  { name: 'Price (ASC)', type: '-price', order: 'asc' },
+  { name: 'Alphabet (DESC)', type: 'name', order: 'desc' },
+  { name: 'Alphabet (ASC)', type: '-name', order: 'asc' },
 ];
 
 const FilterWidget = ({ sortBy, category, onCategory, onSort, bgColor = '#fff' }) => {
