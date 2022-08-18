@@ -12,8 +12,8 @@
   }
   .leftHeader {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: auto 1fr;
     align-items: center;
-    grid-gap: 15px;
+    grid-gap: 30px;
   }
 }

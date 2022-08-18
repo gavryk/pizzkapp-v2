@@ -12,7 +12,7 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.leftHeader}>
         <Logo src={logoImg} alt="logo" logoText="PizzaApp" link="/" />
-        <UIInput type="search" />
+        <UIInput type="search" placeholder="Search..." />
       </div>
       <Link to="/cart">
         <UIButton color="orange">

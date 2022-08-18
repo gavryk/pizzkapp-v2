@@ -1,5 +1,7 @@
 import clsx from 'clsx';
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import styles from './styles.module.scss';
 
 const UIInput = ({
@@ -31,6 +33,7 @@ const UIInput = ({
         onClick={onClick}
         className={clsx(styles.input, { [styles.error]: error })}
       />
+      {type === 'search' && <FontAwesomeIcon icon={faMagnifyingGlass} />}
       {error && <span className={styles.errorTxt}>{error}</span>}
     </div>
   );

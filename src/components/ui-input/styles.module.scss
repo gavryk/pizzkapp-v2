@@ -1,9 +1,25 @@
 .uiInput {
   position: relative;
+  svg {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    opacity: 0.3;
+  }
   .input {
-    border: 1px solid var(--base--color--grey-5);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     background-color: #fff;
     min-height: 30px;
-    padding: 10px 15px;
+    width: 300px;
+    max-width: 100%;
+    padding: var(--base--spaces--2) var(--base--spaces--7) var(--base--spaces--2)
+      var(--base--spaces--4);
+    outline: none;
+    border-radius: 10px;
+    font-size: var(--base--font--size);
+    transition: all 0.2s ease-in-out;
+    &:focus {
+      border: 1px solid rgba(0, 0, 0, 0.3);
+    }
   }
 }
