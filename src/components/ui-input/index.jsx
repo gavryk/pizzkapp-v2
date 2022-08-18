@@ -31,6 +31,7 @@ const UIInput = ({
         onInput={onInput}
         placeholder={placeholder}
         onClick={onClick}
+        value={value}
         className={clsx(styles.input, { [styles.error]: error })}
       />
       {type === 'search' && <FontAwesomeIcon icon={faMagnifyingGlass} />}

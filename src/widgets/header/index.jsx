@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Logo, UIButton, UIInput, UISeparator } from '../../components';
 import logoImg from '../../assets/images/pizza-logo.png';
 import styles from './styles.module.scss';
@@ -8,11 +8,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
+  const [searchValue, setSearchValue] = useState('');
+
+  console.log(searchValue);
+
   return (
     <header className={styles.header}>
       <div className={styles.leftHeader}>
         <Logo src={logoImg} alt="logo" logoText="PizzaApp" link="/" />
-        <UIInput type="search" placeholder="Search..." />
+        <UIInput
+          type="search"
+          placeholder="Search..."
+          onChange={(event) => setSearchValue(event.target.value)}
+          value={searchValue}
+        />
       </div>
       <Link to="/cart">
         <UIButton color="orange">
