@@ -7,6 +7,9 @@
   flex-wrap: wrap;
   flex-direction: row;
   margin-bottom: var(--base--spaces--6);
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
   @media (max-width: 645px) {
     padding: var(--base--spaces--6) var(--base--spaces--4);
   }
@@ -15,5 +18,15 @@
     grid-template-columns: auto 1fr;
     align-items: center;
     grid-gap: 30px;
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(1, auto);
+      justify-content: center;
+      grid-gap: 15px;
+      flex-basis: 100%;
+      margin-bottom: 20px;
+      > div {
+        margin: 0 auto;
+      }
+    }
   }
 }

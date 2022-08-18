@@ -10,7 +10,7 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
     background-color: #fff;
     min-height: 30px;
-    width: 300px;
+    width: 250px;
     max-width: 100%;
     padding: var(--base--spaces--2) var(--base--spaces--7) var(--base--spaces--2)
       var(--base--spaces--4);
@@ -20,6 +20,7 @@
     transition: all 0.2s ease-in-out;
     &:focus {
       border: 1px solid rgba(0, 0, 0, 0.3);
+      width: 300px;
     }
   }
 }
