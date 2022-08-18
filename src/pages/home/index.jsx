@@ -8,11 +8,11 @@ import { FilterWidget } from '../../widgets';
 const Home = () => {
   const dispatch = useDispatch();
   const { items, isLoaded } = useSelector(({ pizzas }) => pizzas);
-  const { category, sortBy } = useSelector(({ filters }) => filters);
+  const { category, sortBy, searchText } = useSelector(({ filters }) => filters);
 
   useEffect(() => {
-    dispatch(fetchPizzas(category, sortBy));
-  }, [dispatch, category, sortBy]);
+    dispatch(fetchPizzas(category, sortBy, searchText));
+  }, [dispatch, category, sortBy, searchText]);
 
   const selectCatHandler = (index) => {
     dispatch(setCategory(index));

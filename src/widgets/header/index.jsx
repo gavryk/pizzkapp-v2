@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Logo, UIButton, UIInput, UISeparator } from '../../components';
 import logoImg from '../../assets/images/pizza-logo.png';
 import styles from './styles.module.scss';
@@ -6,11 +7,15 @@ import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { setSearch } from '../../redux/actions/filter-pizza-action';
 
 const Header = () => {
-  const [searchValue, setSearchValue] = useState('');
+  const dispatch = useDispatch();
+  const { searchText } = useSelector(({ filters }) => filters);
 
-  console.log(searchValue);
+  const setSearchValue = (searchText) => {
+    dispatch(setSearch(searchText));
+  };
 
   return (
     <header className={styles.header}>
@@ -20,7 +25,7 @@ const Header = () => {
           type="search"
           placeholder="Search..."
           onChange={(event) => setSearchValue(event.target.value)}
-          value={searchValue}
+          value={searchText}
         />
       </div>
       <Link to="/cart">

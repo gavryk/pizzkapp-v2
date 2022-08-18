@@ -1,5 +1,6 @@
 const initState = {
   category: null,
+  searchText: '',
   sortBy: {
     name: 'Popular (DESC)',
     type: 'rating',
@@ -18,6 +19,11 @@ const filters = (state = initState, action) => {
       return {
         ...state,
         category: action.payload,
+      };
+    case 'SET_SEARCH':
+      return {
+        ...state,
+        searchText: action.payload,
       };
     default:
       return state;
