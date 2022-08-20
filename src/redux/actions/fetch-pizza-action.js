@@ -33,3 +33,10 @@ export const setLoading = (status) => {
     payload: status,
   };
 };
+
+export const setCurrentPage = (page) => {
+  return {
+    type: 'SET_PAGE',
+    payload: page,
+  };
+};

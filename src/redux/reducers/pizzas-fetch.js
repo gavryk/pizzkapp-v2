@@ -1,5 +1,6 @@
 const initState = {
   items: [],
+  currentPage: 1,
   isLoaded: false,
 };
 
@@ -14,6 +15,11 @@ const pizzas = (state = initState, action) => {
       return {
         ...state,
         isLoaded: action.payload,
+      };
+    case 'SET_PAGE':
+      return {
+        ...state,
+        currentPage: action.payload,
       };
     default:
       return state;

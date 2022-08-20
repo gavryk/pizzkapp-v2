@@ -19,7 +19,7 @@
   border-radius: 5px;
   margin: 0 var(--base--spaces--1);
   &:hover,
-  .currentPage {
+  &.currentPage {
     background-color: var(--base--color--orange);
     .pageLink {
       color: var(--base--color--white);

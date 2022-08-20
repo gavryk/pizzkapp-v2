@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { UICard, UIGrid, UITitle, SkeletonCard, Pagination } from '../../components';
-import { fetchPizzas } from '../../redux/actions/fetch-pizza-action';
+import { fetchPizzas, setCurrentPage } from '../../redux/actions/fetch-pizza-action';
 import { setCategory, setSortBy } from '../../redux/actions/filter-pizza-action';
 import { FilterWidget } from '../../widgets';
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { items, isLoaded } = useSelector(({ pizzas }) => pizzas);
+  const { items, isLoaded, currentPage } = useSelector(({ pizzas }) => pizzas);
   const { category, sortBy, searchText } = useSelector(({ filters }) => filters);
 
   useEffect(() => {
@@ -20,6 +20,10 @@ const Home = () => {
 
   const selectSortHandler = (type) => {
     dispatch(setSortBy(type));
+  };
+
+  const selectCurrentPage = (page) => {
+    dispatch(setCurrentPage(page));
   };
 
   const pizzas = items.map((item) => <UICard key={item.id} {...item} />);
@@ -39,7 +43,12 @@ const Home = () => {
       <UIGrid columns={4} gridGap={8}>
         {isLoaded ? pizzas : skeletons}
       </UIGrid>
-      <Pagination totalItemsCount={100} pageSize={5} currentPage={1} />
+      <Pagination
+        totalItemsCount={100}
+        pageSize={5}
+        currentPage={currentPage}
+        onChangedPage={selectCurrentPage}
+      />
     </>
   );
 };
