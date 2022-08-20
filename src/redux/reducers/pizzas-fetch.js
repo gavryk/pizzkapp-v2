@@ -1,6 +1,7 @@
 const initState = {
   items: [],
   currentPage: 1,
+  limit: 8,
   isLoaded: false,
 };
 

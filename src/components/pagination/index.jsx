@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import styles from './styles.module.scss';
 
-const Pagination = ({ totalItemsCount, pageSize, currentPage, onChangedPage, portionSize = 5 }) => {
+const Pagination = ({ totalItemsCount, pageSize, currentPage, onChangedPage, portionSize = 8 }) => {
   let pagesCount = Math.ceil(totalItemsCount / pageSize);
   let pages = [];
   for (let i = 1; i <= pagesCount; i++) {

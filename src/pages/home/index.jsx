@@ -7,12 +7,12 @@ import { FilterWidget } from '../../widgets';
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { items, isLoaded, currentPage } = useSelector(({ pizzas }) => pizzas);
+  const { items, isLoaded, currentPage, limit } = useSelector(({ pizzas }) => pizzas);
   const { category, sortBy, searchText } = useSelector(({ filters }) => filters);
 
   useEffect(() => {
-    dispatch(fetchPizzas(category, sortBy, searchText));
-  }, [dispatch, category, sortBy, searchText]);
+    dispatch(fetchPizzas(category, sortBy, searchText, currentPage));
+  }, [dispatch, category, sortBy, searchText, currentPage]);
 
   const selectCatHandler = (index) => {
     dispatch(setCategory(index));
@@ -44,8 +44,8 @@ const Home = () => {
         {isLoaded ? pizzas : skeletons}
       </UIGrid>
       <Pagination
-        totalItemsCount={100}
-        pageSize={5}
+        totalItemsCount={25}
+        pageSize={limit}
         currentPage={currentPage}
         onChangedPage={selectCurrentPage}
       />
