@@ -2,7 +2,7 @@ import React from 'react';
 import { UIButton, UIDropdown } from '../../components';
 import styles from './styles.module.scss';
 
-const catList = ['Meat', 'Vegetarian', 'Grill', 'Sharp', 'Closed'];
+const catList = ['Meat', 'Vegetarian', 'Grill', 'Cheese', 'BBQ'];
 
 const sortList = [
   { name: 'Popular (DESC)', type: 'rating', order: 'desc' },
