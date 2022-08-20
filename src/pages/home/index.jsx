@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { UICard, UIGrid, UITitle, SkeletonCard } from '../../components';
+import { UICard, UIGrid, UITitle, SkeletonCard, Pagination } from '../../components';
 import { fetchPizzas } from '../../redux/actions/fetch-pizza-action';
 import { setCategory, setSortBy } from '../../redux/actions/filter-pizza-action';
 import { FilterWidget } from '../../widgets';
@@ -39,6 +39,7 @@ const Home = () => {
       <UIGrid columns={4} gridGap={8}>
         {isLoaded ? pizzas : skeletons}
       </UIGrid>
+      <Pagination totalItemsCount={100} pageSize={5} currentPage={1} />
     </>
   );
 };

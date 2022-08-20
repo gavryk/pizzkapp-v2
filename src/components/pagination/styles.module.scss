@@ -1,0 +1,31 @@
+.root {
+  position: relative;
+  padding: var(--base--spaces--9) 0 var(--base--spaces--2);
+}
+
+.paginations {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.pageItem {
+  padding: var(--base--spaces--1) var(--base--spaces--2);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border-radius: 5px;
+  margin: 0 var(--base--spaces--1);
+  &:hover,
+  .currentPage {
+    background-color: var(--base--color--orange);
+    .pageLink {
+      color: var(--base--color--white);
+    }
+  }
+}
+.pageLink {
+  transition: all 0.2s ease-in-out;
+}
