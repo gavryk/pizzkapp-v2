@@ -64,3 +64,16 @@ const Pagination = ({ totalItemsCount, pageSize, currentPage, onChangedPage, por
 };
 
 export default Pagination;
+
+[
+  {
+    id: 23,
+    imageUrl: 'https://www.eda-irk.ru/wp-content/uploads/2019/11/chiken_barbeku.jpg',
+    name: 'Cheesse BBQ',
+    types: [0, 1],
+    sizes: [26, 30, 45],
+    price: 440,
+    category: 3,
+    rating: 9,
+  },
+];
