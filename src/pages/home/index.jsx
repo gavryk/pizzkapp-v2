@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { UICard, UIGrid, UITitle, SkeletonCard, Pagination } from '../../components';
-import { fetchPizzas, setCurrentPage } from '../../redux/actions/fetch-pizza-action';
-import { setCategory, setSortBy } from '../../redux/actions/filter-pizza-action';
+import { setCategory, setCurrentPage, setSortBy } from '../../redux/slices/filter/slice';
+import { fetchPizzas } from '../../redux/slices/pizzas/asyncAction';
 import { FilterWidget } from '../../widgets';
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { items, isLoaded, currentPage, limit } = useSelector(({ pizzas }) => pizzas);
-  const { category, sortBy, searchText } = useSelector(({ filters }) => filters);
+  const { items, isLoaded, limit } = useSelector((state) => state.pizza);
+  const { category, sortBy, searchText, currentPage } = useSelector((state) => state.filter);
 
   useEffect(() => {
-    dispatch(fetchPizzas(category, sortBy, searchText, currentPage));
+    dispatch(fetchPizzas({ category, sortBy, searchText, currentPage }));
   }, [dispatch, category, sortBy, searchText, currentPage]);
 
   const selectCatHandler = (index) => {

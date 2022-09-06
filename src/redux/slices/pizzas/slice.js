@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { fetchPizzas } from './asyncAction';
 
 const initialState = {
   items: [],
@@ -6,20 +7,31 @@ const initialState = {
   isLoaded: false,
 };
 
-export const pizzasSlice = createSlice({
-  name: 'pizzas',
+export const pizzaSlice = createSlice({
+  name: 'pizza',
   initialState,
   reducers: {
     setPizzas: (state, action) => {
       state.items = action.payload;
     },
-    setLoading: (state, action) => {
-      state.isLoaded = action.payload;
+  },
+  extraReducers: {
+    [fetchPizzas.pending]: (state, action) => {
+      state.items = [];
+      state.isLoaded = false;
+    },
+    [fetchPizzas.fulfilled]: (state, action) => {
+      state.items = action.payload;
+      state.isLoaded = true;
+    },
+    [fetchPizzas.rejected]: (state, action) => {
+      state.items = [];
+      state.isLoaded = false;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setPizzas, setLoading } = pizzasSlice.actions;
+export const { setPizzas } = pizzaSlice.actions;
 
-export default pizzasSlice.reducer;
+export default pizzaSlice.reducer;
