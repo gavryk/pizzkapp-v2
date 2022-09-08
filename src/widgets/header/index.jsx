@@ -5,17 +5,33 @@ import { Logo, UIButton, UIInput, UISeparator } from '../../components';
 import logoImg from '../../assets/images/pizza-logo.png';
 import styles from './styles.module.scss';
 import { Link } from 'react-router-dom';
+import debounce from 'lodash.debounce';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import { useEffect } from 'react';
+import { useCallback } from 'react';
+import { useState } from 'react';
 
 const Header = () => {
   const dispatch = useDispatch();
+  const [value, setValue] = useState('');
   const { searchText } = useSelector((state) => state.filter);
 
-  const setSearchValue = (searchText) => {
-    dispatch(setSearch(searchText));
+  // const setSearchValue = (searchText) => {
+  //   dispatch(setSearch(searchText));
+  // };
+
+  const updateSearchValue = useCallback(
+    debounce((str) => {
+      dispatch(setSearch(str));
+      console.log(str);
+    }, 1000),
+    [],
+  );
+
+  const setSearchValue = (value) => {
+    setValue(value);
+    updateSearchValue(value);
   };
 
   return (
@@ -26,7 +42,7 @@ const Header = () => {
           type="search"
           placeholder="Search..."
           onChange={(event) => setSearchValue(event.target.value)}
-          value={searchText}
+          value={value}
         />
       </div>
       <Link to="/cart">
