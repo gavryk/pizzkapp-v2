@@ -17,6 +17,7 @@ const UIInput = ({
   onInput,
   onClick,
   error,
+  ref,
 }) => {
   return (
     <div className={styles.uiInput}>
@@ -33,6 +34,7 @@ const UIInput = ({
         onClick={onClick}
         value={value}
         className={clsx(styles.input, { [styles.error]: error })}
+        ref={ref}
       />
       {type === 'search' && <FontAwesomeIcon icon={faMagnifyingGlass} />}
       {error && <span className={styles.errorTxt}>{error}</span>}

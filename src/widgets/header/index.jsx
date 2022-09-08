@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { useEffect } from 'react';
 
 const Header = () => {
   const dispatch = useDispatch();
