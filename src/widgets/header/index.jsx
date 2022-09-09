@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setSearch } from '../../redux/slices/filter/slice';
 import { Logo, UIButton, UIInput, UISeparator } from '../../components';
 import logoImg from '../../assets/images/pizza-logo.png';
@@ -15,11 +15,6 @@ import { useState } from 'react';
 const Header = () => {
   const dispatch = useDispatch();
   const [value, setValue] = useState('');
-  const { searchText } = useSelector((state) => state.filter);
-
-  // const setSearchValue = (searchText) => {
-  //   dispatch(setSearch(searchText));
-  // };
 
   const updateSearchValue = useCallback(
     debounce((str) => {
