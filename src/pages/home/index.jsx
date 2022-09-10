@@ -11,12 +11,37 @@ import {
 import { fetchPizzas } from '../../redux/slices/pizzas/asyncAction';
 import { FilterWidget, sortList } from '../../widgets';
 import { useNavigate } from 'react-router-dom';
+import { useRef } from 'react';
 
 const Home = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { items, isLoaded, limit } = useSelector((state) => state.pizza);
   const { category, sortBy, searchText, currentPage } = useSelector((state) => state.filter);
+  const isSearch = useRef(false);
+  const isMounted = useRef(false);
+
+  //First Fatching Pizzas
+  useEffect(() => {
+    if (!isSearch.current) {
+      dispatch(fetchPizzas({ category, sortBy, searchText, currentPage }));
+    }
+    isSearch.current = false;
+  }, [dispatch, category, sortBy, searchText, currentPage]);
+
+  //Set Query String
+  useEffect(() => {
+    if (isMounted.current) {
+      const queryString = qs.stringify({
+        sortBy: sortBy.type,
+        category,
+        searchText,
+        currentPage,
+      });
+      navigate(`/?${queryString}`);
+    }
+    isMounted.current = true;
+  }, [category, sortBy, searchText, currentPage, navigate]);
 
   //Parse Query String and set in state
   useEffect(() => {
@@ -31,24 +56,9 @@ const Home = () => {
           currentPage: params.currentPage,
         }),
       );
+      isSearch.current = true;
     }
   }, [dispatch]);
-
-  //Set Query String
-  useEffect(() => {
-    const queryString = qs.stringify({
-      sortBy: sortBy.type,
-      category,
-      searchText,
-      currentPage,
-    });
-    navigate(`/?${queryString}`);
-  }, [category, sortBy, searchText, currentPage, navigate]);
-
-  //First Fatching Pizzas
-  useEffect(() => {
-    dispatch(fetchPizzas({ category, sortBy, searchText, currentPage }));
-  }, [dispatch, category, sortBy, searchText, currentPage]);
 
   const selectCatHandler = (index) => {
     dispatch(setCategory(index));
