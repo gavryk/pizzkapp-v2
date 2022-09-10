@@ -1,15 +1,51 @@
 import React, { useEffect } from 'react';
+import qs from 'qs';
 import { useSelector, useDispatch } from 'react-redux';
 import { UICard, UIGrid, UITitle, SkeletonCard, Pagination } from '../../components';
-import { setCategory, setCurrentPage, setSortBy } from '../../redux/slices/filter/slice';
+import {
+  setCategory,
+  setCurrentPage,
+  setSortBy,
+  setFilters,
+} from '../../redux/slices/filter/slice';
 import { fetchPizzas } from '../../redux/slices/pizzas/asyncAction';
-import { FilterWidget } from '../../widgets';
+import { FilterWidget, sortList } from '../../widgets';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { items, isLoaded, limit } = useSelector((state) => state.pizza);
   const { category, sortBy, searchText, currentPage } = useSelector((state) => state.filter);
 
+  //Parse Query String and set in state
+  useEffect(() => {
+    if (window.location.search) {
+      const params = qs.parse(window.location.search.substring(1));
+      const sortParams = sortList.find((obj) => obj.type === params.sortBy);
+      dispatch(
+        setFilters({
+          sortBy: sortParams,
+          category: params.category !== '' ? Number(params.category) : null,
+          searchText: params.searchText,
+          currentPage: params.currentPage,
+        }),
+      );
+    }
+  }, [dispatch]);
+
+  //Set Query String
+  useEffect(() => {
+    const queryString = qs.stringify({
+      sortBy: sortBy.type,
+      category,
+      searchText,
+      currentPage,
+    });
+    navigate(`/?${queryString}`);
+  }, [category, sortBy, searchText, currentPage, navigate]);
+
+  //First Fatching Pizzas
   useEffect(() => {
     dispatch(fetchPizzas({ category, sortBy, searchText, currentPage }));
   }, [dispatch, category, sortBy, searchText, currentPage]);

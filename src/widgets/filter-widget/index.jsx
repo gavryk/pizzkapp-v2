@@ -4,7 +4,7 @@ import styles from './styles.module.scss';
 
 const catList = ['Meat', 'Vegetarian', 'Grill', 'Cheese', 'BBQ'];
 
-const sortList = [
+export const sortList = [
   { name: 'Popular (DESC)', type: 'rating', order: 'desc' },
   { name: 'Popular (ASC)', type: '-rating', order: 'asc' },
   { name: 'Price (DESC)', type: 'price', order: 'desc' },
@@ -13,7 +13,7 @@ const sortList = [
   { name: 'Alphabet (ASC)', type: '-name', order: 'asc' },
 ];
 
-const FilterWidget = ({ sortBy, category, onCategory, onSort, bgColor = '#fff' }) => {
+export const FilterWidget = ({ sortBy, category, onCategory, onSort, bgColor = '#fff' }) => {
   return (
     <>
       <div className={styles.filterWrapper} style={{ backgroundColor: bgColor }}>
@@ -36,5 +36,3 @@ const FilterWidget = ({ sortBy, category, onCategory, onSort, bgColor = '#fff' }
     </>
   );
 };
-
-export default FilterWidget;

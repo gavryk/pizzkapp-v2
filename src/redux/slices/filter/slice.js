@@ -27,10 +27,17 @@ export const filterSlice = createSlice({
     setCurrentPage: (state, action) => {
       state.currentPage = action.payload;
     },
+    setFilters: (state, action) => {
+      state.sortBy = action.payload.sortBy;
+      state.category = action.payload.category;
+      state.searchText = action.payload.searchText;
+      state.currentPage = Number(action.payload.currentPage);
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setSortBy, setCategory, setSearch, setCurrentPage } = filterSlice.actions;
+export const { setSortBy, setCategory, setSearch, setCurrentPage, setFilters } =
+  filterSlice.actions;
 
 export default filterSlice.reducer;

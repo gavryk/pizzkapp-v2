@@ -19,7 +19,6 @@ const Header = () => {
   const updateSearchValue = useCallback(
     debounce((str) => {
       dispatch(setSearch(str));
-      console.log(str);
     }, 1000),
     [],
   );
