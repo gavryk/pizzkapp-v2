@@ -12,6 +12,7 @@ import { fetchPizzas } from '../../redux/slices/pizzas/asyncAction';
 import { FilterWidget, sortList } from '../../widgets';
 import { useNavigate } from 'react-router-dom';
 import { useRef } from 'react';
+import { addItem } from '../../redux/slices/cart/slice';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -72,7 +73,11 @@ const Home = () => {
     dispatch(setCurrentPage(page));
   };
 
-  const pizzas = items.map((item) => <UICard key={item.id} {...item} />);
+  const addToCart = (item) => {
+    dispatch(addItem(item));
+  };
+
+  const pizzas = items.map((item) => <UICard key={item.id} {...item} addToCart={addToCart} />);
   const skeletons = [...new Array(8)].map((_, index) => <SkeletonCard key={index} />);
 
   return (

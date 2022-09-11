@@ -12,6 +12,18 @@ const UICard = ({ id, imageUrl, name, price, types, sizes, addToCart, inCartCoun
 
   const availableTypes = ['thin', 'traditional'];
 
+  const addItem = () => {
+    const item = {
+      id,
+      name,
+      imageUrl,
+      price,
+      size: sizes[activeSize],
+      type: availableTypes[activeType],
+    };
+    addToCart(item);
+  };
+
   return (
     <div className={styles.card}>
       <div className={styles.cardImage}>
@@ -49,7 +61,7 @@ const UICard = ({ id, imageUrl, name, price, types, sizes, addToCart, inCartCoun
         <div className={styles.cardPrice}>
           <span>From {price} &#8372;</span>
         </div>
-        <UIButton variants="outlined" color="orange">
+        <UIButton variants="outlined" color="orange" onClick={addItem}>
           <FontAwesomeIcon icon={faPlus} />
           Add
           {inCartCount && <span className={styles.countInCart}>{inCartCount}</span>}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setSearch } from '../../redux/slices/filter/slice';
 import { Logo, UIButton, UIInput, UISeparator } from '../../components';
 import logoImg from '../../assets/images/pizza-logo.png';
@@ -14,6 +14,7 @@ import { useState } from 'react';
 
 const Header = () => {
   const dispatch = useDispatch();
+  const { totalPrice, totalCount } = useSelector((state) => state.cart);
   const [value, setValue] = useState('');
 
   const updateSearchValue = useCallback(
@@ -41,10 +42,11 @@ const Header = () => {
       </div>
       <Link to="/cart">
         <UIButton color="orange">
-          <span>0 &#8372;</span>
+          <span>{totalPrice} &#8372;</span>
           <UISeparator color="white" />
           <span>
-            <FontAwesomeIcon icon={faShoppingCart} />0
+            <FontAwesomeIcon icon={faShoppingCart} />
+            {totalCount}
           </span>
         </UIButton>
       </Link>
