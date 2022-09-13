@@ -5,10 +5,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import styles from './styles.module.scss';
 import clsx from 'clsx';
+import { useSelector } from 'react-redux';
 
-const UICard = ({ id, imageUrl, name, price, types, sizes, addToCart, inCartCount }) => {
+const UICard = ({ id, imageUrl, name, price, types, sizes, addToCart }) => {
   const [activeType, setActiveType] = useState(types[0]);
   const [activeSize, setActiveSize] = useState(0);
+  const cartItem = useSelector((state) => state.cart.items.find((obj) => obj.id === id));
+  const addedCount = cartItem ? cartItem.count : 0;
 
   const availableTypes = ['thin', 'traditional'];
 
@@ -64,7 +67,7 @@ const UICard = ({ id, imageUrl, name, price, types, sizes, addToCart, inCartCoun
         <UIButton variants="outlined" color="orange" onClick={addItem}>
           <FontAwesomeIcon icon={faPlus} />
           Add
-          {inCartCount && <span className={styles.countInCart}>{inCartCount}</span>}
+          {addedCount > 0 && <span className="count">{addedCount}</span>}
         </UIButton>
       </div>
     </div>

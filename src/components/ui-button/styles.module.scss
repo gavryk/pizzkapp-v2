@@ -34,6 +34,19 @@
       color: var(--base--color--white);
     }
   }
+  :global {
+    .count {
+      margin: 0 0 0 10px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      min-width: 20px;
+      min-height: 20px;
+      background-color: transparent;
+    }
+  }
 }
 
 .text {
@@ -51,14 +64,32 @@
       color: var(--base--color--black-2);
     }
   }
+  :global {
+    .count {
+      color: var(--base--color--white);
+      background-color: var(--base--color--grey-6);
+    }
+  }
 }
 
 //Contained Variant
 .contained {
   color: var(--base--color--black);
   background-color: var(--base--color--grey-2);
+  :global {
+    .count {
+      color: var(--base--color--white);
+      background-color: var(--base--color--grey-2);
+    }
+  }
   &:hover {
     background-color: var(--base--color--black);
+    :global {
+      .count {
+        color: var(--base--color--white);
+        background-color: var(--base--color--black);
+      }
+    }
   }
   &.active {
     background-color: var(--base--color--black);
@@ -68,6 +99,11 @@
 .contained.orange {
   background-color: var(--base--color--orange);
   color: var(--base--color--white);
+  :global {
+    .count {
+      color: var(--base--color--orange);
+    }
+  }
   a,
   span {
     color: var(--base--color--white);
@@ -83,6 +119,11 @@
 .contained.green {
   background-color: var(--base--color--green);
   color: var(--base--color--white);
+  :global {
+    .count {
+      color: var(--base--color--green);
+    }
+  }
   a,
   span {
     color: var(--base--color--white);
@@ -98,6 +139,11 @@
 .contained.black {
   background-color: var(--base--color--black);
   color: var(--base--color--white);
+  :global {
+    .count {
+      color: var(--base--color--black);
+    }
+  }
   a,
   span {
     color: var(--base--color--white);
@@ -113,6 +159,11 @@
 .contained.red {
   background-color: var(--base--color--red);
   color: var(--base--color--white);
+  :global {
+    .count {
+      color: var(--base--color--red);
+    }
+  }
   a,
   span {
     color: var(--base--color--white);
@@ -130,6 +181,12 @@
   border: 1px solid var(--base--color--black);
   background-color: var(--base--color--grey-2);
   color: var(--base--color--black);
+  :global {
+    .count {
+      color: var(--base--color--white);
+      background-color: var(--base--color--black);
+    }
+  }
   a,
   span {
     color: var(--base--color--black);
@@ -137,6 +194,12 @@
   &:hover {
     background-color: var(--base--color--black);
     color: var(--base--color--white);
+    :global {
+      .count {
+        color: var(--base--color--black);
+        background-color: var(--base--color--white);
+      }
+    }
     a {
       color: var(--base--color--white);
     }
@@ -150,6 +213,12 @@
   border: 1px solid var(--base--color--orange);
   background-color: var(--base--color--grey-2);
   color: var(--base--color--orange);
+  :global {
+    .count {
+      color: var(--base--color--white);
+      background-color: var(--base--color--orange);
+    }
+  }
   a,
   span {
     color: var(--base--color--orange);
@@ -159,6 +228,12 @@
     color: var(--base--color--white);
     a {
       color: var(--base--color--white);
+    }
+    :global {
+      .count {
+        color: var(--base--color--orange);
+        background-color: var(--base--color--white);
+      }
     }
   }
   &.active {
@@ -170,6 +245,12 @@
   border: 1px solid var(--base--color--green);
   background-color: var(--base--color--grey-2);
   color: var(--base--color--green);
+  :global {
+    .count {
+      color: var(--base--color--white);
+      background-color: var(--base--color--green);
+    }
+  }
   a,
   span {
     color: var(--base--color--green);
@@ -177,6 +258,12 @@
   &:hover {
     background-color: var(--base--color--green);
     color: var(--base--color--white);
+    :global {
+      .count {
+        color: var(--base--color--green);
+        background-color: var(--base--color--white);
+      }
+    }
     a {
       color: var(--base--color--white);
     }
@@ -190,6 +277,12 @@
   border: 1px solid var(--base--color--red);
   background-color: var(--base--color--grey-2);
   color: var(--base--color--red);
+  :global {
+    .count {
+      color: var(--base--color--white);
+      background-color: var(--base--color--red);
+    }
+  }
   a,
   span {
     color: var(--base--color--red);
@@ -197,6 +290,12 @@
   &:hover {
     background-color: var(--base--color--red);
     color: var(--base--color--white);
+    :global {
+      .count {
+        color: var(--base--color--red);
+        background-color: var(--base--color--white);
+      }
+    }
     a {
       color: var(--base--color--white);
     }
