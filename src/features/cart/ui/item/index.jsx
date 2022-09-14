@@ -5,11 +5,11 @@ import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { faMinusCircle } from '@fortawesome/free-solid-svg-icons';
 import styles from './styles.module.scss';
 
-const CartItem = ({ imgUrl, name, type, size, totalCountPizzas, totalPricePizzas }) => {
+const CartItem = ({ imageUrl, name, type, size, count, price }) => {
   return (
     <div className={styles.cartItem}>
       <div className={styles.cartItemImage}>
-        <img src={imgUrl} alt="name" />
+        <img src={imageUrl} alt={name} />
       </div>
       <div className={styles.cartItemName}>
         <h4>{name}</h4>
@@ -21,13 +21,13 @@ const CartItem = ({ imgUrl, name, type, size, totalCountPizzas, totalPricePizzas
         <button>
           <FontAwesomeIcon icon={faMinusCircle} />
         </button>
-        <span>{totalCountPizzas}</span>
+        <span>{count}</span>
         <button>
           <FontAwesomeIcon icon={faPlusCircle} />
         </button>
       </div>
       <div className={styles.cartItemPrice}>
-        <span>{totalPricePizzas} &#8372;</span>
+        <span>{price} &#8372;</span>
       </div>
       <div className={styles.cartItemRemove}>
         <button className={styles.btnRemove}>

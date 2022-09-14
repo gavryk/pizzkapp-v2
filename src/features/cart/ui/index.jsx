@@ -6,8 +6,18 @@ import CartTop from './top';
 import { UIButton, UIGrid } from '../../../components';
 import CartItem from './item';
 import CartTotal from './total';
+import { useDispatch } from 'react-redux';
+import { clearItems } from '../../../redux/slices/cart/slice';
 
 export const CartTab = ({ items, totalCount, totalPrice }) => {
+  const dispath = useDispatch();
+
+  const clearCart = () => {
+    if (window.confirm('Clear Cart?')) {
+      dispath(clearItems());
+    }
+  };
+
   return (
     <>
       <CartTop
@@ -15,25 +25,13 @@ export const CartTab = ({ items, totalCount, totalPrice }) => {
         titleIcon={
           <FontAwesomeIcon icon={faShoppingCart} size="xs" style={{ marginRight: `10px` }} />
         }>
-        <UIButton variants="text">
+        <UIButton variants="text" onClick={clearCart}>
           <FontAwesomeIcon icon={faTrashAlt} />
           <span>Clear Cart</span>
         </UIButton>
       </CartTop>
       <UIGrid columns={1} gridGap={2}>
-        {items &&
-          items.map((item) => (
-            <CartItem
-              id={item.id}
-              key={item.id}
-              name={item.name}
-              type={item.type}
-              size={item.size}
-              price={item.price}
-              totalPricePizzas="100$"
-              totalCountPizzas="2"
-            />
-          ))}
+        {items && items.map((item) => <CartItem key={item.id} {...item} />)}
       </UIGrid>
       <CartTotal totalCount={totalCount} totalPrice={totalPrice} />
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
