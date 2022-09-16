@@ -9,28 +9,16 @@ import { addItem, minusItem, removeItem } from '../../../../redux/slices/cart/sl
 
 const CartItem = ({ id, imageUrl, name, type, size, count, price }) => {
   const dispatch = useDispatch();
+  const itemProps = { id, imageUrl, name, type, size, count, price };
 
   const onClickPlus = () => {
-    dispatch(
-      addItem({
-        id,
-        size,
-        type,
-      }),
-    );
+    dispatch(addItem(itemProps));
   };
   const onClickMinus = () => {
-    dispatch(
-      minusItem({
-        id,
-        size,
-        type,
-      }),
-    );
+    dispatch(minusItem(itemProps));
   };
   const onRemoveItem = () => {
-    let obj = { id, imageUrl, name, type, size, count, price };
-    dispatch(removeItem(obj));
+    dispatch(removeItem(itemProps));
   };
 
   return (
