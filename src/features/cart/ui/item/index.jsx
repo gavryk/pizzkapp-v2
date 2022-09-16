@@ -14,14 +14,22 @@ const CartItem = ({ id, imageUrl, name, type, size, count, price }) => {
     dispatch(
       addItem({
         id,
+        size,
+        type,
       }),
     );
   };
   const onClickMinus = () => {
-    dispatch(minusItem(id));
+    dispatch(
+      minusItem({
+        id,
+        size,
+        type,
+      }),
+    );
   };
   const onRemoveItem = () => {
-    dispatch(removeItem(id));
+    dispatch(removeItem({ id, type, size }));
   };
 
   return (

@@ -31,7 +31,8 @@ export const CartTab = ({ items, totalCount, totalPrice }) => {
         </UIButton>
       </CartTop>
       <UIGrid columns={1} gridGap={2}>
-        {items && items.map((item) => <CartItem key={item.id} {...item} />)}
+        {items &&
+          items.map((item) => <CartItem key={`${item.id}_${item.size}_${item.type}`} {...item} />)}
       </UIGrid>
       <CartTotal totalCount={totalCount} totalPrice={totalPrice} />
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
