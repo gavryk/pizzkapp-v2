@@ -29,7 +29,8 @@ const CartItem = ({ id, imageUrl, name, type, size, count, price }) => {
     );
   };
   const onRemoveItem = () => {
-    dispatch(removeItem({ id, type, size }));
+    let obj = { id, imageUrl, name, type, size, count, price };
+    dispatch(removeItem(obj));
   };
 
   return (

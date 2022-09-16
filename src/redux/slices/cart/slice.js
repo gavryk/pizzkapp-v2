@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { isEqual } from 'lodash';
 import { calcCartItems } from '../../../utils/calcCartItems';
 
 const initialState = {
@@ -43,9 +44,7 @@ const cartSlice = createSlice({
       state.totalPrice = calcCartItems(state.items).price;
     },
     removeItem: (state, action) => {
-      const newArr = state.items.filter((obj) => obj.id === action.payload.id);
-      const newArr2 = newArr.filter((obj) => obj.size !== action.payload.size);
-      state.items = [...state.items.filter((obj) => obj.id !== action.payload.id), ...newArr2];
+      state.items = state.items.filter((obj) => !isEqual(obj, action.payload));
       state.totalCount = calcCartItems(state.items).count;
       state.totalPrice = calcCartItems(state.items).price;
     },

@@ -5,7 +5,7 @@ import { Logo, UIButton, UIInput, UISeparator } from '../../components';
 import logoImg from '../../assets/images/pizza-logo.png';
 import styles from './styles.module.scss';
 import { Link } from 'react-router-dom';
-import debounce from 'lodash.debounce';
+import { debounce } from 'lodash';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
