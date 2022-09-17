@@ -5,14 +5,18 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { UIButton, UITypography } from '../../components';
 import emptyCartImage from '../../assets/images/empty-cart.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 const Cart = () => {
   const { items, totalCount, totalPrice } = useSelector((state) => state.cart);
 
   return (
-    <div className={styles.cartPage}>
+    <>
       {totalCount > 0 ? (
-        <CartTab items={items} totalCount={totalCount} totalPrice={totalPrice} />
+        <div className={styles.cartPage}>
+          <CartTab items={items} totalCount={totalCount} totalPrice={totalPrice} />
+        </div>
       ) : (
         <div className={styles.emptyCart}>
           <UITypography variant="h1" fontWeight="bold" bottomSpace="sm" textAlign="center">
@@ -27,11 +31,14 @@ const Cart = () => {
             <img src={emptyCartImage} alt="Empty cart" />
           </div>
           <UIButton color="black" variants="outlined">
-            <Link to="/">Come Back</Link>
+            <Link to="/">
+              <FontAwesomeIcon icon={faChevronLeft} />
+              Come Back
+            </Link>
           </UIButton>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
