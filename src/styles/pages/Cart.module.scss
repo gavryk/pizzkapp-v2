@@ -4,3 +4,10 @@
   margin: 0 auto;
   padding: var(--base--spaces--13) 0;
 }
+
+.emptyCart {
+  text-align: center;
+  &__image {
+    margin-bottom: 30px;
+  }
+}

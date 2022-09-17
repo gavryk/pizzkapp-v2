@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import qs from 'qs';
 import { useSelector, useDispatch } from 'react-redux';
-import { UICard, UIGrid, UITitle, SkeletonCard, Pagination } from '../../components';
+import { UICard, UIGrid, UITypography, SkeletonCard, Pagination } from '../../components';
 import {
   setCategory,
   setCurrentPage,
@@ -88,9 +88,9 @@ const Home = () => {
         onCategory={selectCatHandler}
         onSort={selectSortHandler}
       />
-      <UITitle variant="h2" fontWeight="bold" bottomSpace="md">
+      <UITypography variant="h2" fontWeight="bold" bottomSpace="md">
         All Pizzas
-      </UITitle>
+      </UITypography>
       <UIGrid columns={4} gridGap={8}>
         {isLoaded ? pizzas : skeletons}
       </UIGrid>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import UIButton from '../ui-button';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,7 +11,8 @@ const UICard = ({ id, imageUrl, name, price, types, sizes, addToCart }) => {
   const [activeType, setActiveType] = useState(types[0]);
   const [activeSize, setActiveSize] = useState(0);
   const cartItem = useSelector((state) => state.cart.items.filter((obj) => obj.id === id));
-  const addedCount = cartItem.length !== 0 ? cartItem.map((item) => item.count).reduce((sum, acc) => sum + acc) : 0;
+  const addedCount =
+    cartItem.length !== 0 ? cartItem.map((item) => item.count).reduce((sum, acc) => sum + acc) : 0;
 
   const availableTypes = ['thin', 'traditional'];
 
