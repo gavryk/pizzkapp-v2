@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSearch } from '../../redux/slices/filter/slice';
-import { Logo, UIButton, UIInput, UISeparator } from '../../components';
+import { Logo, Progress, UIButton, UIInput, UISeparator } from '../../components';
 import logoImg from '../../assets/images/pizza-logo.png';
 import styles from './styles.module.scss';
 import { Link } from 'react-router-dom';
@@ -15,6 +15,7 @@ import { useState } from 'react';
 const Header = () => {
   const dispatch = useDispatch();
   const { totalPrice, totalCount } = useSelector((state) => state.cart);
+  const { isLoaded } = useSelector((state) => state.pizza);
   const [value, setValue] = useState('');
 
   const updateSearchValue = useCallback(
@@ -50,6 +51,7 @@ const Header = () => {
           </span>
         </UIButton>
       </Link>
+      {isLoaded === 'loading' && <Progress />}
     </header>
   );
 };

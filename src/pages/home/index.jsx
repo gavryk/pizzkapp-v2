@@ -92,7 +92,7 @@ const Home = () => {
         All Pizzas
       </UITypography>
       <UIGrid columns={4} gridGap={8}>
-        {isLoaded ? pizzas : skeletons}
+        {isLoaded === 'success' ? pizzas : skeletons}
       </UIGrid>
       <Pagination
         totalItemsCount={25}

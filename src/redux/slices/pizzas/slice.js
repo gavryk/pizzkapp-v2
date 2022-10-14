@@ -4,7 +4,7 @@ import { fetchPizzas } from './asyncAction';
 const initialState = {
   items: [],
   limit: 8,
-  isLoaded: false,
+  isLoaded: '',
 };
 
 export const pizzaSlice = createSlice({
@@ -18,15 +18,15 @@ export const pizzaSlice = createSlice({
   extraReducers: {
     [fetchPizzas.pending]: (state) => {
       state.items = [];
-      state.isLoaded = false;
+      state.isLoaded = 'loading';
     },
     [fetchPizzas.fulfilled]: (state, action) => {
       state.items = action.payload;
-      state.isLoaded = true;
+      state.isLoaded = 'success';
     },
     [fetchPizzas.rejected]: (state) => {
       state.items = [];
-      state.isLoaded = false;
+      state.isLoaded = 'error';
     },
   },
 });
