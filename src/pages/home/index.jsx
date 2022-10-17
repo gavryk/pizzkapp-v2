@@ -80,7 +80,12 @@ const Home = () => {
   const pizzas = items.map((item) => <UICard key={item.id} {...item} addToCart={addToCart} />);
   const skeletons = [...new Array(8)].map((_, index) => <SkeletonCard key={index} />);
 
-  return (
+  return isLoaded === 'error' ? (
+    <div style={{ textAlign: 'center', padding: `40px 0` }}>
+      <h2>An error has occurred!</h2>
+      <p>Sorry, we couldn't get pizzas. Please try again later.</p>
+    </div>
+  ) : (
     <>
       <FilterWidget
         sortBy={sortBy}
