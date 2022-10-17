@@ -81,10 +81,14 @@ const Home = () => {
   const skeletons = [...new Array(8)].map((_, index) => <SkeletonCard key={index} />);
 
   return isLoaded === 'error' ? (
-    <div style={{ textAlign: 'center', padding: `40px 0` }}>
-      <h2>An error has occurred!</h2>
-      <p>Sorry, we couldn't get pizzas. Please try again later.</p>
-    </div>
+    <>
+      <UITypography variant="h2" fontWeight="bold" bottomSpace="sm" textAlign="center">
+        An error has occurred!
+      </UITypography>
+      <UITypography variant="h5" fontWeight="regular" bottomSpace="none" textAlign="center">
+        Sorry, we couldn't get pizzas. Please try again later.
+      </UITypography>
+    </>
   ) : (
     <>
       <FilterWidget
