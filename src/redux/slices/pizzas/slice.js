@@ -4,7 +4,7 @@ import { fetchPizzas } from './asyncAction';
 const initialState = {
   items: [],
   limit: 8,
-  isLoaded: '',
+  isLoaded: '', //loading | success | error
 };
 
 export const pizzaSlice = createSlice({
