@@ -7,9 +7,10 @@ import { UIButton, UITypography } from '../../components';
 import emptyCartImage from '../../assets/images/empty-cart.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { cartSelector } from '../../redux/slices/cart/slice';
 
 const Cart = () => {
-  const { items, totalCount, totalPrice } = useSelector((state) => state.cart);
+  const { items, totalCount, totalPrice } = useSelector(cartSelector);
 
   return (
     <>

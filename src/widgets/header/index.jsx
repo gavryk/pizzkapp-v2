@@ -11,10 +11,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { useCallback } from 'react';
 import { useState } from 'react';
+import { cartSelector } from '../../redux/slices/cart/slice';
 
 const Header = () => {
   const dispatch = useDispatch();
-  const { totalPrice, totalCount } = useSelector((state) => state.cart);
+  const { totalPrice, totalCount } = useSelector(cartSelector);
   const { isLoaded } = useSelector((state) => state.pizza);
   const [value, setValue] = useState('');
 
