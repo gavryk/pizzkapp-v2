@@ -7,18 +7,20 @@ import {
   setCurrentPage,
   setSortBy,
   setFilters,
+  filterSelector,
 } from '../../redux/slices/filter/slice';
 import { fetchPizzas } from '../../redux/slices/pizzas/asyncAction';
 import { FilterWidget, sortList } from '../../widgets';
 import { useNavigate } from 'react-router-dom';
 import { useRef } from 'react';
 import { addItem } from '../../redux/slices/cart/slice';
+import { pizzaSelector } from '../../redux/slices/pizzas/slice';
 
 const Home = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { items, isLoaded, limit } = useSelector((state) => state.pizza);
-  const { category, sortBy, searchText, currentPage } = useSelector((state) => state.filter);
+  const { items, isLoaded, limit } = useSelector(pizzaSelector);
+  const { category, sortBy, searchText, currentPage } = useSelector(filterSelector);
   const isSearch = useRef(false);
   const isMounted = useRef(false);
 

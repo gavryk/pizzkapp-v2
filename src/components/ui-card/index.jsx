@@ -6,11 +6,12 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import styles from './styles.module.scss';
 import clsx from 'clsx';
 import { useSelector } from 'react-redux';
+import { cartItemByIdSelector } from '../../redux/slices/cart/slice';
 
 const UICard = ({ id, imageUrl, name, price, types, sizes, addToCart }) => {
   const [activeType, setActiveType] = useState(types[0]);
   const [activeSize, setActiveSize] = useState(0);
-  const cartItem = useSelector((state) => state.cart.items.filter((obj) => obj.id === id));
+  const cartItem = useSelector(cartItemByIdSelector(id));
   const addedCount =
     cartItem.length !== 0 ? cartItem.map((item) => item.count).reduce((sum, acc) => sum + acc) : 0;
 

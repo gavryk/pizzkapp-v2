@@ -12,11 +12,12 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { useCallback } from 'react';
 import { useState } from 'react';
 import { cartSelector } from '../../redux/slices/cart/slice';
+import { pizzaSelector } from '../../redux/slices/pizzas/slice';
 
 const Header = () => {
   const dispatch = useDispatch();
   const { totalPrice, totalCount } = useSelector(cartSelector);
-  const { isLoaded } = useSelector((state) => state.pizza);
+  const { isLoaded } = useSelector(pizzaSelector);
   const [value, setValue] = useState('');
 
   const updateSearchValue = useCallback(
