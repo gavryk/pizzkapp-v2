@@ -14,6 +14,9 @@ export const pizzaSlice = createSlice({
     setPizzas: (state, action) => {
       state.items = action.payload;
     },
+    setStatus: (state, action) => {
+      state.isLoaded = action.payload;
+    },
   },
   extraReducers: {
     [fetchPizzas.pending]: (state) => {
@@ -34,6 +37,6 @@ export const pizzaSlice = createSlice({
 export const pizzaSelector = (state) => state.pizza;
 
 // Action creators are generated for each case reducer function
-export const { setPizzas } = pizzaSlice.actions;
+export const { setPizzas, setStatus } = pizzaSlice.actions;
 
 export default pizzaSlice.reducer;

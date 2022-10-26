@@ -1,0 +1,25 @@
+.singlePage {
+  position: relative;
+  padding: var(--base--spaces--5) 0;
+}
+.singleImage {
+  text-align: center;
+  .image {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto;
+    &:after {
+      content: '';
+      display: block;
+      padding-bottom: 98.03%;
+    }
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

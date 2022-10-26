@@ -7,6 +7,7 @@ import styles from './styles.module.scss';
 import clsx from 'clsx';
 import { useSelector } from 'react-redux';
 import { cartItemByIdSelector } from '../../redux/slices/cart/slice';
+import { Link } from 'react-router-dom';
 
 const UICard = ({ id, imageUrl, name, price, types, sizes, addToCart }) => {
   const [activeType, setActiveType] = useState(types[0]);
@@ -31,9 +32,11 @@ const UICard = ({ id, imageUrl, name, price, types, sizes, addToCart }) => {
 
   return (
     <div className={styles.card}>
-      <div className={styles.cardImage}>
-        <img src={imageUrl} alt={name} />
-      </div>
+      <Link to={`/pizza/${id}`}>
+        <div className={styles.cardImage}>
+          <img src={imageUrl} alt={name} />
+        </div>
+      </Link>
       <h5 className={styles.cardTitle}>{name}</h5>
       <div className={styles.cardSelector}>
         <ul>
