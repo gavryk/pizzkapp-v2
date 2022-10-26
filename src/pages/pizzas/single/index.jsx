@@ -2,9 +2,11 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { UIGrid, UITypography } from '../../../components';
+import { Link, useParams } from 'react-router-dom';
+import { UIButton, UIGrid, UITypography } from '../../../components';
 import { setStatus } from '../../../redux/slices/pizzas/slice';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import styles from '../../../styles/pages/Single.module.scss';
 
 export const SinglePizza = () => {
@@ -56,6 +58,12 @@ export const SinglePizza = () => {
                 <UITypography variant="h5" fontWeight="bold">
                   Price: {pizza.price} $
                 </UITypography>
+                <Link to="/">
+                  <UIButton color="orange">
+                    <FontAwesomeIcon icon={faChevronLeft} />
+                    Go Back To Shop
+                  </UIButton>
+                </Link>
               </div>
             </div>
           </UIGrid>
