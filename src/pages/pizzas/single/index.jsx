@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { UIButton, UIGrid, UITypography } from '../../../components';
 import { setStatus } from '../../../redux/slices/pizzas/slice';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,6 +13,7 @@ export const SinglePizza = () => {
   const dispatch = useDispatch();
   const [pizza, setPizza] = useState();
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(setStatus('loading'));
@@ -25,6 +26,7 @@ export const SinglePizza = () => {
         dispatch(setStatus('success'));
       } catch (error) {
         alert('Oops, something wrong...');
+        navigate('/');
       }
     }
     fetchSinglePizza();
