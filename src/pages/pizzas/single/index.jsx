@@ -30,10 +30,6 @@ export const SinglePizza = () => {
     fetchSinglePizza();
   }, [id, dispatch]);
 
-  // if (!pizza) {
-  //   return 'Loading...';
-  // }
-
   return (
     <>
       {!pizza ? (
