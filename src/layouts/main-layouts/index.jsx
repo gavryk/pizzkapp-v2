@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import Header from '../../widgets/header';
 import styles from './styles.module.scss';
 
-const MainLayout = ({ children }) => {
+const MainLayout = () => {
   return (
     <>
       <div className={styles.mainWrapper}>
