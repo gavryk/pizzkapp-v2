@@ -1,10 +1,18 @@
 import clsx from 'clsx';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import styles from './styles.module.scss';
 
-const Pagination = ({ totalItemsCount, pageSize, currentPage, onChangedPage, portionSize = 5 }) => {
+interface PagiProps {
+  totalItemsCount: number,
+  pageSize: number,
+  currentPage: number,
+  onChangedPage: (page: number) => void,
+  portionSize: number
+}
+
+export const Pagination = ({ totalItemsCount, pageSize, currentPage, onChangedPage, portionSize = 5 }: PagiProps) => {
   let pagesCount = Math.ceil(totalItemsCount / pageSize);
   let pages = [];
   for (let i = 1; i <= pagesCount; i++) {
@@ -62,5 +70,3 @@ const Pagination = ({ totalItemsCount, pageSize, currentPage, onChangedPage, por
     </>
   );
 };
-
-export default Pagination;

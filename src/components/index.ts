@@ -7,5 +7,5 @@ export { default as UIGrid } from './ui-grid/index';
 export { default as UITypography } from './ui-typography/index';
 export { default as UISeparator } from './ui-separator/index';
 export { default as UIInput } from './ui-input/index';
-export { default as Pagination } from './pagination/index';
+export * from './pagination';
 export { default as Progress } from './progress/index';
