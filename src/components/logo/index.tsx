@@ -3,7 +3,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './styles.module.scss';
 
-const Logo = ({ src, alt, logoText, link, size = 'md' }) => {
+interface LogoProps {
+  src: string,
+  alt: string,
+  logoText?: string,
+  link: string,
+  size?: 'sm' | 'md' | 'lg'
+}
+
+export const Logo = ({ src, alt, logoText, link, size = 'md' }: LogoProps) => {
   return (
     <div className={clsx(styles.logo, styles[size])}>
       <Link to={link}>
@@ -13,5 +21,3 @@ const Logo = ({ src, alt, logoText, link, size = 'md' }) => {
     </div>
   );
 };
-
-export default Logo;

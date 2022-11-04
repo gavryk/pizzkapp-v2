@@ -1,5 +1,5 @@
 export { default as UIButton } from './ui-button/index';
-export { default as Logo } from './logo/index';
+export * from './logo';
 export { default as UIDropdown } from './ui-dropdown/index';
 export { default as UICard } from './ui-card/index';
 export { default as SkeletonCard } from './ui-card/skeleton-card';
