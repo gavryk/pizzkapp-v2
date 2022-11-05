@@ -1,7 +1,7 @@
 export * from './ui-button';
 export * from './logo';
 export { default as UIDropdown } from './ui-dropdown/index';
-export { default as UICard } from './ui-card/index';
+export * from './ui-card';
 export { default as SkeletonCard } from './ui-card/skeleton-card';
 export { default as UIGrid } from './ui-grid/index';
 export { default as UITypography } from './ui-typography/index';

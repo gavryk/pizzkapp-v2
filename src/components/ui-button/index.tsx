@@ -4,7 +4,7 @@ import styles from './styles.module.scss';
 
 interface ButtonProps {
   children: React.ReactNode,
-  active: boolean,
+  active?: boolean,
   color: 'orange' | 'black' | 'red' | 'green',
   variants?: 'contained' | 'outlined' | 'text',
   type?: React.ButtonHTMLAttributes<HTMLButtonElement>['type']
