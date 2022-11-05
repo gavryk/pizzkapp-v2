@@ -4,19 +4,35 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import clsx from 'clsx';
 
-const UIDropdown = React.memo(({ list, selected, onSetSort }) => {
-  const [visibleList, setVisibleList] = useState(false);
-  const sortRef = useRef();
+interface DropdownProps {
+  list: ListProps[];
+  selected: ListProps;
+  onSetSort: (obj: ListProps) => void;
+}
 
-  const toggleSelectItem = (type) => {
-    onSetSort(type);
+interface ListProps {
+  name: string;
+  type: string;
+  order: string;
+}
+
+type PopupClick = MouseEvent & {
+  path: Node[];
+};
+
+export const UIDropdown = React.memo(({ list, selected, onSetSort }: DropdownProps) => {
+  const [visibleList, setVisibleList] = useState(false);
+  const sortRef = useRef<HTMLDivElement>(null);
+
+  const toggleSelectItem = (obj: ListProps) => {
+    onSetSort(obj);
     setVisibleList(false);
   };
 
   useEffect(() => {
-    const clickOffSortPopup = (event) => {
-      let path = event.path || (event.composedPath && event.composedPath());
-      if (!path.includes(sortRef.current)) {
+    const clickOffSortPopup = (event: MouseEvent) => {
+      const _event = event as PopupClick;
+      if (sortRef.current && !_event.path.includes(sortRef.current)) {
         setVisibleList(false);
       }
     };
@@ -57,5 +73,3 @@ const UIDropdown = React.memo(({ list, selected, onSetSort }) => {
     </div>
   );
 });
-
-export default UIDropdown;
