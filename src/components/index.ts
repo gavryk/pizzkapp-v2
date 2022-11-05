@@ -1,4 +1,4 @@
-export { default as UIButton } from './ui-button/index';
+export * from './ui-button';
 export * from './logo';
 export { default as UIDropdown } from './ui-dropdown/index';
 export { default as UICard } from './ui-card/index';
@@ -8,4 +8,4 @@ export { default as UITypography } from './ui-typography/index';
 export { default as UISeparator } from './ui-separator/index';
 export { default as UIInput } from './ui-input/index';
 export * from './pagination';
-export { default as Progress } from './progress/index';
+export * from './progress';

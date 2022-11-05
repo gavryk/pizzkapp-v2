@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import UIButton from '../ui-button';
+import { useState } from 'react';
+import { UIButton } from '../ui-button';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
