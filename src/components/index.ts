@@ -6,6 +6,6 @@ export * from './ui-card/skeleton-card';
 export * from './ui-grid';
 export { default as UITypography } from './ui-typography/index';
 export { default as UISeparator } from './ui-separator/index';
-export { default as UIInput } from './ui-input/index';
+export * from './ui-input/index';
 export * from './pagination';
 export * from './progress';
