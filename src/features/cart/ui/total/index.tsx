@@ -1,7 +1,12 @@
 import React from 'react';
 import styles from './styles.module.scss';
 
-const CartTotal = ({ totalCount, totalPrice }) => {
+interface CartTotalProps {
+  totalCount: number;
+  totalPrice: number;
+}
+
+export const CartTotal: React.FC<CartTotalProps> = ({ totalCount, totalPrice }) => {
   return (
     <div className={styles.cartTotal}>
       <div className={styles.count}>
@@ -15,5 +20,3 @@ const CartTotal = ({ totalCount, totalPrice }) => {
     </div>
   );
 };
-
-export default CartTotal;

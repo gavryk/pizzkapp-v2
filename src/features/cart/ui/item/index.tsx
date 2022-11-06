@@ -7,7 +7,25 @@ import styles from './styles.module.scss';
 import { useDispatch } from 'react-redux';
 import { addItem, minusItem, removeItem } from '../../../../redux/slices/cart/slice';
 
-const CartItem = ({ id, imageUrl, name, type, size, count, price }) => {
+interface CartItemProps {
+  id: string;
+  imageUrl: string;
+  name: string;
+  size: number;
+  type: string;
+  count: number;
+  price: number;
+}
+
+export const CartItem: React.FC<CartItemProps> = ({
+  id,
+  imageUrl,
+  name,
+  type,
+  size,
+  count,
+  price,
+}) => {
   const dispatch = useDispatch();
   const itemProps = { id, imageUrl, name, type, size, count, price };
 
@@ -52,5 +70,3 @@ const CartItem = ({ id, imageUrl, name, type, size, count, price }) => {
     </div>
   );
 };
-
-export default CartItem;

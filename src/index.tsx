@@ -5,16 +5,12 @@ import './styles/global.scss';
 import { Provider } from 'react-redux';
 import App from './App';
 
-const rootElem = document.getElementById('root');
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
-if(rootElem) {
-  const root = ReactDOM.createRoot(rootElem);
-
-  root.render(
-    <Router>
-      <Provider store={store}>
-        <App/>
-      </Provider>
-    </Router>,
-  );
-}
+root.render(
+  <Router>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </Router>,
+);

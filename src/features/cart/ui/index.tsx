@@ -1,15 +1,30 @@
-import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt, faShoppingCart, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import CartTop from './top';
+import { CartTop } from './top';
 import { UIButton, UIGrid } from '../../../components';
-import CartItem from './item';
-import CartTotal from './total';
+import { CartItem } from './item';
+import { CartTotal } from './total';
 import { useDispatch } from 'react-redux';
 import { clearItems } from '../../../redux/slices/cart/slice';
 
-export const CartTab = ({ items, totalCount, totalPrice }) => {
+interface CartTabProps {
+  items: ItemsProps[];
+  totalCount: number;
+  totalPrice: number;
+}
+
+type ItemsProps = {
+  id: string;
+  name: string;
+  imageUrl: string;
+  price: number;
+  size: number;
+  type: string;
+  count: number;
+};
+
+export const CartTab: React.FC<CartTabProps> = ({ items, totalCount, totalPrice }) => {
   const dispath = useDispatch();
 
   const clearCart = () => {

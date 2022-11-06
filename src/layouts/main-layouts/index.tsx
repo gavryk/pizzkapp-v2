@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import Header from '../../widgets/header';
 import styles from './styles.module.scss';
 
-const MainLayout = () => {
+export const MainLayout: React.FC = () => {
   return (
     <>
       <div className={styles.mainWrapper}>
@@ -15,5 +15,3 @@ const MainLayout = () => {
     </>
   );
 };
-
-export default MainLayout;

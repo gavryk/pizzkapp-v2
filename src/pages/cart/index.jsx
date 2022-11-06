@@ -1,6 +1,5 @@
-import React from 'react';
 import styles from '../../styles/pages/Cart.module.scss';
-import { CartTab } from '../../features/cart/ui';
+import { CartTab } from '../../features/cart';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { UIButton, UITypography } from '../../components';
