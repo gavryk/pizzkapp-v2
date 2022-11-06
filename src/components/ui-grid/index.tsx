@@ -2,7 +2,13 @@ import clsx from 'clsx';
 import React, { useMemo } from 'react';
 import styles from './styles.module.scss';
 
-const UIGrid = ({ children, columns, gridGap }) => {
+interface GridProps {
+  children: React.ReactNode;
+  columns: number;
+  gridGap: number;
+}
+
+export const UIGrid = ({ children, columns, gridGap }: GridProps) => {
   const optionsStyle = useMemo(() => {
     return `
       .${styles.gridWrapper} {
@@ -11,7 +17,6 @@ const UIGrid = ({ children, columns, gridGap }) => {
       }
     `;
   }, [columns, gridGap]);
-
   return (
     <>
       <style jsx="true">{optionsStyle}</style>
@@ -19,5 +24,3 @@ const UIGrid = ({ children, columns, gridGap }) => {
     </>
   );
 };
-
-export default UIGrid;
