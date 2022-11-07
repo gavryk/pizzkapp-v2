@@ -5,16 +5,16 @@ import styles from './styles.module.scss';
 
 interface TypoProps {
   variant: string;
-  fontWeight: string;
-  bottomSpace: 'sm' | 'md' | 'lg' | 'none';
+  fontWeight?: string;
+  bottomSpace?: 'sm' | 'md' | 'lg' | 'none';
   textAlign?: 'left' | 'center' | 'right';
   children: ReactNode;
 }
 
 export const UITypography = ({
   variant,
-  fontWeight,
-  bottomSpace,
+  fontWeight = 'regular',
+  bottomSpace = 'md',
   textAlign = 'left',
   children,
 }: TypoProps) => {

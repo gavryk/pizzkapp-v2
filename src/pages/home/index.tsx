@@ -16,9 +16,15 @@ import { useRef } from 'react';
 import { addItem } from '../../redux/slices/cart/slice';
 import { pizzaSelector } from '../../redux/slices/pizzas/slice';
 
-const Home = () => {
+type SortByTypes = {
+  name: string;
+  type: string;
+  order: string;
+};
+
+export const Home: React.FC = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<any>();
   const { items, isLoaded, limit } = useSelector(pizzaSelector);
   const { category, sortBy, searchText, currentPage } = useSelector(filterSelector);
   const isSearch = useRef(false);
@@ -63,23 +69,23 @@ const Home = () => {
     }
   }, [dispatch]);
 
-  const selectCatHandler = (index) => {
+  const selectCatHandler = (index: number) => {
     dispatch(setCategory(index));
   };
 
-  const selectSortHandler = (type) => {
+  const selectSortHandler = (type: SortByTypes) => {
     dispatch(setSortBy(type));
   };
 
-  const selectCurrentPage = (page) => {
+  const selectCurrentPage = (page: number) => {
     dispatch(setCurrentPage(page));
   };
 
-  const addToCart = (item) => {
+  const addToCart = (item: any) => {
     dispatch(addItem(item));
   };
 
-  const pizzas = items.map((item) => <UICard key={item.id} {...item} addToCart={addToCart} />);
+  const pizzas = items.map((item: any) => <UICard key={item.id} {...item} addToCart={addToCart} />);
   const skeletons = [...new Array(8)].map((_, index) => <SkeletonCard key={index} />);
 
   return isLoaded === 'error' ? (
@@ -114,5 +120,3 @@ const Home = () => {
     </>
   );
 };
-
-export default Home;
