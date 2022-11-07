@@ -8,17 +8,15 @@ interface ButtonProps {
   color?: 'orange' | 'black' | 'red' | 'green';
   variants?: 'contained' | 'outlined' | 'text';
   type?: React.ButtonHTMLAttributes<HTMLButtonElement>['type'];
-  key?: string;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export const UIButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ children, active, color, onClick, key, variants = 'contained', type = 'button' }, ref) => {
+  ({ children, active, color, onClick, variants = 'contained', type = 'button' }, ref) => {
     return (
       <button
         ref={ref}
         type={type}
-        key={key}
         onClick={onClick}
         className={clsx(styles.uibutton, styles[variants], {
           [styles.orange]: color === 'orange',
