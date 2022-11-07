@@ -10,3 +10,6 @@ export const store = configureStore({
     cart,
   },
 });
+
+//Export type for selectors
+export type RootState = ReturnType<typeof store.getState>;

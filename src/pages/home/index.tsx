@@ -15,12 +15,7 @@ import { useNavigate } from 'react-router-dom';
 import { useRef } from 'react';
 import { addItem } from '../../redux/slices/cart/slice';
 import { pizzaSelector } from '../../redux/slices/pizzas/slice';
-
-type SortByTypes = {
-  name: string;
-  type: string;
-  order: string;
-};
+import { SortTypes } from '../../redux/slices/filter/types';
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -59,21 +54,21 @@ export const Home: React.FC = () => {
       const sortParams = sortList.find((obj) => obj.type === params.sortBy);
       dispatch(
         setFilters({
-          sortBy: sortParams,
-          category: params.category !== '' ? Number(params.category) : null,
-          searchText: params.searchText,
-          currentPage: params.currentPage,
+          sortBy: Object(sortParams),
+          category: params.category !== 'all' ? Number(params.category) : 'all',
+          searchText: String(params.searchText),
+          currentPage: Number(params.currentPage),
         }),
       );
       isSearch.current = true;
     }
   }, [dispatch]);
 
-  const selectCatHandler = (index: number | null) => {
-    dispatch(setCategory(index));
+  const selectCatHandler = (cat: number | string) => {
+    dispatch(setCategory(cat));
   };
 
-  const selectSortHandler = (type: SortByTypes) => {
+  const selectSortHandler = (type: SortTypes) => {
     dispatch(setSortBy(type));
   };
 

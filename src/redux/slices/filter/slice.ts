@@ -1,7 +1,9 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { RootState } from '../../store';
+import { FilterSliceState, SortTypes } from './types';
 
-const initialState = {
-  category: null,
+const initialState: FilterSliceState = {
+  category: 'all',
   searchText: '',
   currentPage: 1,
   sortBy: {
@@ -15,28 +17,28 @@ export const filterSlice = createSlice({
   name: 'filter',
   initialState,
   reducers: {
-    setSortBy: (state, action) => {
+    setSortBy: (state, action: PayloadAction<SortTypes>) => {
       state.sortBy = action.payload;
     },
-    setCategory: (state, action) => {
+    setCategory: (state, action: PayloadAction<number | string>) => {
       state.category = action.payload;
     },
-    setSearch: (state, action) => {
+    setSearch: (state, action: PayloadAction<string>) => {
       state.searchText = action.payload;
     },
-    setCurrentPage: (state, action) => {
+    setCurrentPage: (state, action: PayloadAction<number>) => {
       state.currentPage = action.payload;
     },
-    setFilters: (state, action) => {
+    setFilters: (state, action: PayloadAction<FilterSliceState>) => {
       state.sortBy = action.payload.sortBy;
       state.category = action.payload.category;
       state.searchText = action.payload.searchText;
-      state.currentPage = Number(action.payload.currentPage);
+      state.currentPage = action.payload.currentPage;
     },
   },
 });
 
-export const filterSelector = (state) => state.filter;
+export const filterSelector = (state: RootState) => state.filter;
 
 // Action creators are generated for each case reducer function
 export const { setSortBy, setCategory, setSearch, setCurrentPage, setFilters } =

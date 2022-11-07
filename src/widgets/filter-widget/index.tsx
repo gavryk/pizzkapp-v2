@@ -1,5 +1,6 @@
 import React from 'react';
 import { UIButton, UIDropdown } from '../../components';
+import { SortTypes } from '../../redux/slices/filter/types';
 import styles from './styles.module.scss';
 
 const catList = ['Meat', 'Vegetarian', 'Grill', 'Cheese', 'BBQ'];
@@ -13,17 +14,11 @@ export const sortList = [
   { name: 'Alphabet (ASC)', type: '-name', order: 'asc' },
 ];
 
-type SortByType = {
-  name: string;
-  type: string;
-  order: string;
-};
-
 interface FilterProps {
-  sortBy: SortByType;
-  category: number;
-  onCategory: (index: number | null) => void;
-  onSort: (obj: SortByType) => void;
+  sortBy: SortTypes;
+  category: number | string;
+  onCategory: (cat: number | string) => void;
+  onSort: (obj: SortTypes) => void;
   bgColor?: string;
 }
 
@@ -38,7 +33,7 @@ export const FilterWidget: React.FC<FilterProps> = ({
     <>
       <div className={styles.filterWrapper} style={{ backgroundColor: bgColor }}>
         <div className={styles.categoriesWrap}>
-          <UIButton active={category === null && true} onClick={() => onCategory(null)}>
+          <UIButton active={category === 'all' && true} onClick={() => onCategory('all')}>
             All
           </UIButton>
           {catList &&

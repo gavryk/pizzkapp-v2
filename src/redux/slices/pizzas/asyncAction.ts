@@ -8,7 +8,7 @@ export const fetchPizzas = createAsyncThunk<Pizza[], SearchPizzaParams>(
   'pizza/fetchPizzasStatus',
   async (params, thunkAPI) => {
     const { category, sortBy, searchText, currentPage } = params;
-    let catQuery = category !== null ? `category=${category}&` : '';
+    let catQuery = category !== 'all' ? `category=${category}&` : '';
     let searchQuery = searchText !== null ? `&search=${searchText}` : '';
     const { data } = await axios.get<Pizza[]>(
       `${dbmock}/pizzas?page=${currentPage}&limit=8&${catQuery}sortBy=${sortBy.type.replace(

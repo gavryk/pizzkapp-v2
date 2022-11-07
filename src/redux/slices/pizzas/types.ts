@@ -6,15 +6,15 @@ export type Pizza = {
   types: number[];
   sizes: number[];
   price: number;
-  category: number;
+  category: number | string;
   rating: number;
 };
 
 export type SearchPizzaParams = {
   sortBy: SortByParams;
-  category: string;
+  category: number | string;
   searchText: string;
-  currentPage: string;
+  currentPage: number;
 };
 
 export type SortByParams = {
@@ -22,3 +22,15 @@ export type SortByParams = {
   type: string;
   order: string;
 };
+
+// export enum Status {
+//   LOADING = 'loading',
+//   SUCCESS = 'success',
+//   ERROR = 'error',
+// }
+
+export interface PizzaSliceState {
+  items: Pizza[];
+  limit: number;
+  isLoaded: string;
+}
