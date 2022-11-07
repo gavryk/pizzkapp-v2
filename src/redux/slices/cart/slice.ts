@@ -1,8 +1,10 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { isEqual } from 'lodash';
 import { calcCartItems } from '../../../utils/calcCartItems';
+import { RootState } from '../../store';
+import { CartItem, CartSlideProps } from './types';
 
-const initialState = {
+const initialState: CartSlideProps = {
   items: [],
   totalPrice: 0,
   totalCount: 0,
@@ -12,7 +14,7 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addItem: (state, action) => {
+    addItem: (state, action: PayloadAction<CartItem>) => {
       const findItem = state.items.find(
         (obj) =>
           obj.id === action.payload.id &&
@@ -51,8 +53,8 @@ const cartSlice = createSlice({
   },
 });
 
-export const cartSelector = (state) => state.cart;
-export const cartItemByIdSelector = (id) => (state) =>
+export const cartSelector = (state: RootState) => state.cart;
+export const cartItemByIdSelector = (id: any) => (state: RootState) =>
   state.cart.items.filter((obj) => obj.id === id);
 
 export const { addItem, removeItem, clearItems, minusItem } = cartSlice.actions;
