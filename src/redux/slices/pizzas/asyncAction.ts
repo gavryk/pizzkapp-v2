@@ -1,32 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { Pizza, SearchPizzaParams } from './types';
 
 const dbmock = 'https://62f6ca0ba3bce3eed7c7ca7a.mockapi.io';
-
-type Pizza = {
-  id: string;
-  imageUrl: string;
-  name: string;
-  description: string;
-  types: number[];
-  sizes: number[];
-  price: number;
-  category: number;
-  rating: number;
-};
-
-type SearchPizzaParams = {
-  sortBy: SortByParams;
-  category: string;
-  searchText: string;
-  currentPage: string;
-};
-
-type SortByParams = {
-  name: string;
-  type: string;
-  order: string;
-};
 
 export const fetchPizzas = createAsyncThunk<Pizza[], SearchPizzaParams>(
   'pizza/fetchPizzasStatus',
