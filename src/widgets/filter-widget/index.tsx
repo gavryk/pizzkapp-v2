@@ -13,7 +13,27 @@ export const sortList = [
   { name: 'Alphabet (ASC)', type: '-name', order: 'asc' },
 ];
 
-export const FilterWidget = ({ sortBy, category, onCategory, onSort, bgColor = '#fff' }) => {
+type SortByType = {
+  name: string;
+  type: string;
+  order: string;
+};
+
+interface FilterProps {
+  sortBy: SortByType;
+  category: number;
+  onCategory: (index: number | null) => void;
+  onSort: (obj: SortByType) => void;
+  bgColor?: string;
+}
+
+export const FilterWidget: React.FC<FilterProps> = ({
+  sortBy,
+  category,
+  onCategory,
+  onSort,
+  bgColor = '#fff',
+}) => {
   return (
     <>
       <div className={styles.filterWrapper} style={{ backgroundColor: bgColor }}>

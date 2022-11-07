@@ -14,20 +14,20 @@ import { useState } from 'react';
 import { cartSelector } from '../../redux/slices/cart/slice';
 import { pizzaSelector } from '../../redux/slices/pizzas/slice';
 
-const Header = () => {
+export const Header: React.FC = () => {
   const dispatch = useDispatch();
   const { totalPrice, totalCount } = useSelector(cartSelector);
   const { isLoaded } = useSelector(pizzaSelector);
   const [value, setValue] = useState('');
 
   const updateSearchValue = useCallback(
-    debounce((str) => {
+    debounce((str: string) => {
       dispatch(setSearch(str));
     }, 1000),
     [],
   );
 
-  const setSearchValue = (value) => {
+  const setSearchValue = (value: string) => {
     setValue(value);
     updateSearchValue(value);
   };
@@ -57,5 +57,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;

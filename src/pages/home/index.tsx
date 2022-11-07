@@ -69,7 +69,7 @@ export const Home: React.FC = () => {
     }
   }, [dispatch]);
 
-  const selectCatHandler = (index: number) => {
+  const selectCatHandler = (index: number | null) => {
     dispatch(setCategory(index));
   };
 

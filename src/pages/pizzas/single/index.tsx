@@ -9,9 +9,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import styles from '../../../styles/pages/Single.module.scss';
 
-export const SinglePizza = () => {
+interface PizzaProps {
+  id: string;
+  imageUrl: string;
+  name: string;
+  price: number;
+  description: string;
+  sizes: number[];
+}
+
+export const SinglePizza: React.FC = () => {
   const dispatch = useDispatch();
-  const [pizza, setPizza] = useState();
+  const [pizza, setPizza] = useState<PizzaProps>();
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -30,7 +39,7 @@ export const SinglePizza = () => {
       }
     }
     fetchSinglePizza();
-  }, [id, dispatch]);
+  }, [id, dispatch, navigate]);
 
   return (
     <>
