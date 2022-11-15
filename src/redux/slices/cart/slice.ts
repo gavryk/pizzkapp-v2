@@ -2,9 +2,9 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { isEqual } from 'lodash';
 import { calcCartItems } from '../../../utils/calcCartItems';
 import { RootState } from '../../store';
-import { CartItem, CartSlideProps } from './types';
+import { CartItem, CartSliceProps } from './types';
 
-const initialState: CartSlideProps = {
+const initialState: CartSliceProps = {
   items: [],
   totalPrice: 0,
   totalCount: 0,

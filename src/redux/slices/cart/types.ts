@@ -8,7 +8,7 @@ export type CartItem = {
   count: number;
 };
 
-export interface CartSlideProps {
+export interface CartSliceProps {
   items: CartItem[];
   totalPrice: number;
   totalCount: number;

@@ -7,7 +7,7 @@ import styles from './styles.module.scss';
 interface InputProps {
   label?: string;
   id?: string;
-  type?: React.HTMLInputTypeAttribute;
+  type: React.HTMLInputTypeAttribute;
   required?: InputHTMLAttributes<HTMLInputElement>['required'];
   onBlur?: React.FocusEventHandler<HTMLInputElement>;
   name?: string;
