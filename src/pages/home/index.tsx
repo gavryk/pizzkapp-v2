@@ -10,12 +10,13 @@ import {
   filterSelector,
 } from '../../redux/slices/filter/slice';
 import { fetchPizzas } from '../../redux/slices/pizzas/asyncAction';
-import { FilterWidget, sortList } from '../../widgets';
+import { FilterWidget } from '../../widgets';
 import { useNavigate } from 'react-router-dom';
 import { useRef } from 'react';
 import { addItem } from '../../redux/slices/cart/slice';
 import { pizzaSelector } from '../../redux/slices/pizzas/slice';
 import { SortTypes } from '../../redux/slices/filter/types';
+import { sortList } from '../../widgets/filter-widget/model';
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();

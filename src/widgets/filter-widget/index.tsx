@@ -1,19 +1,8 @@
 import React from 'react';
 import { UIButton, UIDropdown } from '../../components';
 import { SortTypes } from '../../redux/slices/filter/types';
+import { catList, sortList } from './model';
 import styles from './styles.module.scss';
-
-const catList = ['Meat', 'Vegetarian', 'Grill', 'Cheese', 'BBQ'];
-
-export const sortList = [
-  { name: 'Popular (DESC)', type: 'rating', order: 'desc' },
-  { name: 'Popular (ASC)', type: '-rating', order: 'asc' },
-  { name: 'Price (DESC)', type: 'price', order: 'desc' },
-  { name: 'Price (ASC)', type: '-price', order: 'asc' },
-  { name: 'Alphabet (DESC)', type: 'name', order: 'desc' },
-  { name: 'Alphabet (ASC)', type: '-name', order: 'asc' },
-];
-
 interface FilterProps {
   sortBy: SortTypes;
   category: number | string;
