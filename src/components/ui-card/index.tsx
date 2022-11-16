@@ -9,15 +9,16 @@ import clsx from 'clsx';
 import { useSelector } from 'react-redux';
 import { cartItemByIdSelector } from '../../redux/slices/cart/slice';
 import { Link } from 'react-router-dom';
+import { CartItem } from '../../redux/slices/cart/types';
 
 interface CardProps {
-  id: string | number;
+  id: string;
   imageUrl: string;
   name: string;
   price: number;
   types: number[];
   sizes: number[];
-  addToCart: (item: any) => void;
+  addToCart: (item: CartItem) => void;
 }
 
 export const UICard = React.forwardRef<HTMLDivElement, CardProps>(
@@ -27,7 +28,9 @@ export const UICard = React.forwardRef<HTMLDivElement, CardProps>(
     const cartItem = useSelector(cartItemByIdSelector(id));
     const addedCount =
       cartItem.length !== 0
-        ? cartItem.map((item: any) => item.count).reduce((sum: any, acc: any) => sum + acc)
+        ? cartItem
+            .map((item: CartItem) => item.count)
+            .reduce((sum: number, acc: number) => sum + acc)
         : 0;
 
     const availableTypes = ['thin', 'traditional'];
@@ -40,6 +43,7 @@ export const UICard = React.forwardRef<HTMLDivElement, CardProps>(
         price,
         size: sizes[activeSize],
         type: availableTypes[activeType],
+        count: 0,
       };
       addToCart(item);
     };
