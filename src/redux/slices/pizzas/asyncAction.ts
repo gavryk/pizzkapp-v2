@@ -6,7 +6,7 @@ const dbmock = 'https://62f6ca0ba3bce3eed7c7ca7a.mockapi.io';
 
 export const fetchPizzas = createAsyncThunk<Pizza[], SearchPizzaParams>(
   'pizza/fetchPizzasStatus',
-  async (params, thunkAPI) => {
+  async (params) => {
     const { category, sortBy, searchText, currentPage } = params;
     let catQuery = category !== 'all' ? `category=${category}&` : '';
     let searchQuery = searchText !== null ? `&search=${searchText}` : '';
