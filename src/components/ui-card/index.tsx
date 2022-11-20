@@ -7,9 +7,9 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import styles from './styles.module.scss';
 import clsx from 'clsx';
 import { useSelector } from 'react-redux';
-import { cartItemByIdSelector } from '../../redux/slices/cart/slice';
 import { Link } from 'react-router-dom';
 import { CartItem } from '../../redux/slices/cart/types';
+import { cartItemByIdSelector } from '../../redux/slices/cart/selectors';
 
 interface CardProps {
   id: string;

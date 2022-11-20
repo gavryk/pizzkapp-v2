@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '../../store';
 import { FilterSliceState, SortTypes } from './types';
 
 const initialState: FilterSliceState = {
@@ -37,8 +36,6 @@ export const filterSlice = createSlice({
     },
   },
 });
-
-export const filterSelector = (state: RootState) => state.filter;
 
 // Action creators are generated for each case reducer function
 export const { setSortBy, setCategory, setSearch, setCurrentPage, setFilters } =

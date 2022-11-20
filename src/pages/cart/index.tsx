@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from '../../styles/pages/Cart.module.scss';
 import { CartTab } from '../../features/cart';
 import { useSelector } from 'react-redux';
@@ -6,8 +7,7 @@ import { UIButton, UITypography } from '../../components';
 import emptyCartImage from '../../assets/images/empty-cart.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
-import { cartSelector } from '../../redux/slices/cart/slice';
-import React from 'react';
+import { cartSelector } from '../../redux/slices/cart/selectors';
 
 export const Cart: React.FC = () => {
   const { items, totalCount, totalPrice } = useSelector(cartSelector);

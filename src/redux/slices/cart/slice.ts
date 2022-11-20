@@ -2,7 +2,6 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { isEqual } from 'lodash';
 import { calcCartItems } from '../../../utils/calcCartItems';
 import { getCartLS } from '../../../utils/getLocalStorage';
-import { RootState } from '../../store';
 import { CartItem, CartSliceProps } from './types';
 
 const initialState: CartSliceProps = getCartLS();
@@ -49,10 +48,6 @@ const cartSlice = createSlice({
     },
   },
 });
-
-export const cartSelector = (state: RootState) => state.cart;
-export const cartItemByIdSelector = (id: string) => (state: RootState) =>
-  state.cart.items.filter((obj) => obj.id === id);
 
 export const { addItem, removeItem, clearItems, minusItem } = cartSlice.actions;
 export default cartSlice.reducer;

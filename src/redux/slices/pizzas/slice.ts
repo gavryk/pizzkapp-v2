@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '../../store';
 import { fetchPizzas } from './asyncAction';
 import { Pizza, PizzaSliceState } from './types';
 
@@ -35,8 +34,6 @@ export const pizzaSlice = createSlice({
     });
   },
 });
-
-export const pizzaSelector = (state: RootState) => state.pizza;
 
 // Action creators are generated for each case reducer function
 export const { setPizzas, setStatus } = pizzaSlice.actions;

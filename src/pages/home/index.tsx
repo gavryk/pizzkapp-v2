@@ -7,19 +7,19 @@ import {
   setCurrentPage,
   setSortBy,
   setFilters,
-  filterSelector,
 } from '../../redux/slices/filter/slice';
 import { fetchPizzas } from '../../redux/slices/pizzas/asyncAction';
 import { FilterWidget } from '../../widgets';
 import { useNavigate } from 'react-router-dom';
 import { useRef } from 'react';
 import { addItem } from '../../redux/slices/cart/slice';
-import { pizzaSelector } from '../../redux/slices/pizzas/slice';
 import { SortTypes } from '../../redux/slices/filter/types';
 import { catList, sortList } from '../../widgets/filter-widget/model';
 import { Pizza } from '../../redux/slices/pizzas/types';
 import { CartItem } from '../../redux/slices/cart/types';
 import { useAppDispatch } from '../../redux/store';
+import { filterSelector } from '../../redux/slices/filter/selectors';
+import { pizzaSelector } from '../../redux/slices/pizzas/selectors';
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -69,13 +69,19 @@ export const Home: React.FC = () => {
     }
   }, [dispatch]);
 
-  const selectCatHandler = useCallback((cat: number | string) => {
-    dispatch(setCategory(cat));
-  }, []);
+  const selectCatHandler = useCallback(
+    (cat: number | string) => {
+      dispatch(setCategory(cat));
+    },
+    [dispatch],
+  );
 
-  const selectSortHandler = useCallback((type: SortTypes) => {
-    dispatch(setSortBy(type));
-  }, []);
+  const selectSortHandler = useCallback(
+    (type: SortTypes) => {
+      dispatch(setSortBy(type));
+    },
+    [dispatch],
+  );
 
   const selectCurrentPage = (page: number) => {
     dispatch(setCurrentPage(page));

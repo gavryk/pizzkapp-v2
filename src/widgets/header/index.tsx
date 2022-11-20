@@ -11,8 +11,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { useCallback } from 'react';
 import { useState } from 'react';
-import { cartSelector } from '../../redux/slices/cart/slice';
-import { pizzaSelector } from '../../redux/slices/pizzas/slice';
+import { pizzaSelector } from '../../redux/slices/pizzas/selectors';
+import { cartSelector } from '../../redux/slices/cart/selectors';
 
 export const Header: React.FC = () => {
   const dispatch = useDispatch();
@@ -22,6 +22,7 @@ export const Header: React.FC = () => {
   const { pathname } = useLocation();
   const isMounted = useRef(false);
 
+  // eslint-disable-next-line
   const updateSearchValue = useCallback(
     debounce((str: string) => {
       dispatch(setSearch(str));
