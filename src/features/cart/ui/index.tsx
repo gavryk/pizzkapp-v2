@@ -3,7 +3,7 @@ import { faTrashAlt, faShoppingCart, faChevronLeft } from '@fortawesome/free-sol
 import { Link } from 'react-router-dom';
 import { CartTop } from './top';
 import { UIButton, UIGrid } from '../../../components';
-import { CartItem } from './item';
+import { CartItemBlock } from './item';
 import { CartTotal } from './total';
 import { useDispatch } from 'react-redux';
 import { clearItems } from '../../../redux/slices/cart/slice';
@@ -47,7 +47,9 @@ export const CartTab: React.FC<CartTabProps> = ({ items, totalCount, totalPrice 
       </CartTop>
       <UIGrid columns={1} gridGap={2}>
         {items &&
-          items.map((item) => <CartItem key={`${item.id}_${item.size}_${item.type}`} {...item} />)}
+          items.map((item) => (
+            <CartItemBlock key={`${item.id}_${item.size}_${item.type}`} {...item} />
+          ))}
       </UIGrid>
       <CartTotal totalCount={totalCount} totalPrice={totalPrice} />
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import qs from 'qs';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { UICard, UIGrid, UITypography, SkeletonCard, Pagination } from '../../components';
 import {
   setCategory,

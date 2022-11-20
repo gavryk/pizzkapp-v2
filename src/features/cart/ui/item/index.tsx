@@ -17,7 +17,7 @@ interface CartItemProps {
   price: number;
 }
 
-export const CartItem: React.FC<CartItemProps> = ({
+export const CartItemBlock: React.FC<CartItemProps> = ({
   id,
   imageUrl,
   name,
