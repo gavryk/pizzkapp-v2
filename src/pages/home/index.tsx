@@ -16,7 +16,7 @@ import { useRef } from 'react';
 import { addItem } from '../../redux/slices/cart/slice';
 import { pizzaSelector } from '../../redux/slices/pizzas/slice';
 import { SortTypes } from '../../redux/slices/filter/types';
-import { sortList } from '../../widgets/filter-widget/model';
+import { catList, sortList } from '../../widgets/filter-widget/model';
 import { Pizza } from '../../redux/slices/pizzas/types';
 import { CartItem } from '../../redux/slices/cart/types';
 import { useAppDispatch } from '../../redux/store';
@@ -108,7 +108,7 @@ export const Home: React.FC = () => {
         onSort={selectSortHandler}
       />
       <UITypography variant="h2" fontWeight="bold" bottomSpace="md">
-        All Pizzas
+        {category !== 'all' ? catList[Number(category)] : 'All'} Pizzas
       </UITypography>
       <UIGrid columns={4} gridGap={8}>
         {isLoaded === 'success' ? pizzas : skeletons}

@@ -51,7 +51,7 @@ export const CartItemBlock: React.FC<CartItemProps> = ({
         </p>
       </div>
       <div className={styles.cartItemCount}>
-        <button onClick={onClickMinus}>
+        <button onClick={onClickMinus} disabled={count <= 1}>
           <FontAwesomeIcon icon={faMinusCircle} />
         </button>
         <span>{count}</span>
