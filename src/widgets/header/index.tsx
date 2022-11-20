@@ -4,7 +4,7 @@ import { setSearch } from '../../redux/slices/filter/slice';
 import { Logo, Progress, UIButton, UIInput, UISeparator } from '../../components';
 import logoImg from '../../assets/images/pizza-logo.png';
 import styles from './styles.module.scss';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { debounce } from 'lodash';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -19,6 +19,7 @@ export const Header: React.FC = () => {
   const { totalPrice, totalCount } = useSelector(cartSelector);
   const { isLoaded } = useSelector(pizzaSelector);
   const [value, setValue] = useState('');
+  const { pathname } = useLocation();
 
   const updateSearchValue = useCallback(
     debounce((str: string) => {
@@ -36,12 +37,14 @@ export const Header: React.FC = () => {
     <header className={styles.header}>
       <div className={styles.leftHeader}>
         <Logo src={logoImg} alt="logo" logoText="PizzaApp" link="/" />
-        <UIInput
-          type="search"
-          placeholder="Search..."
-          onChange={(event) => setSearchValue(event.target.value)}
-          value={value}
-        />
+        {pathname === '/' && (
+          <UIInput
+            type="search"
+            placeholder="Search..."
+            onChange={(event) => setSearchValue(event.target.value)}
+            value={value}
+          />
+        )}
       </div>
       <Link to="/cart">
         <UIButton color="orange">

@@ -20,7 +20,7 @@ type PopupClick = MouseEvent & {
   path: Node[];
 };
 
-export const UIDropdown = React.memo(({ list, selected, onSetSort }: DropdownProps) => {
+export const UIDropdown: React.FC<DropdownProps> = React.memo(({ list, selected, onSetSort }) => {
   const [visibleList, setVisibleList] = useState(false);
   const sortRef = useRef<HTMLDivElement>(null);
 

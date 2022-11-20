@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 import styles from './styles.module.scss';
 
 interface LogoProps {
-  src: string,
-  alt: string,
-  logoText?: string,
-  link: string,
-  size?: 'sm' | 'md' | 'lg'
+  src: string;
+  alt: string;
+  logoText?: string;
+  link: string;
+  size?: 'sm' | 'md' | 'lg';
 }
 
-export const Logo = ({ src, alt, logoText, link, size = 'md' }: LogoProps) => {
+export const Logo = React.memo(({ src, alt, logoText, link, size = 'md' }: LogoProps) => {
   return (
     <div className={clsx(styles.logo, styles[size])}>
       <Link to={link}>
@@ -20,4 +20,4 @@ export const Logo = ({ src, alt, logoText, link, size = 'md' }: LogoProps) => {
       </Link>
     </div>
   );
-};
+});

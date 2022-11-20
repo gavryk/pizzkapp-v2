@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import qs from 'qs';
 import { useSelector } from 'react-redux';
 import { UICard, UIGrid, UITypography, SkeletonCard, Pagination } from '../../components';
@@ -69,13 +69,13 @@ export const Home: React.FC = () => {
     }
   }, [dispatch]);
 
-  const selectCatHandler = (cat: number | string) => {
+  const selectCatHandler = useCallback((cat: number | string) => {
     dispatch(setCategory(cat));
-  };
+  }, []);
 
-  const selectSortHandler = (type: SortTypes) => {
+  const selectSortHandler = useCallback((type: SortTypes) => {
     dispatch(setSortBy(type));
-  };
+  }, []);
 
   const selectCurrentPage = (page: number) => {
     dispatch(setCurrentPage(page));
