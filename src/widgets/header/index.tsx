@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSearch } from '../../redux/slices/filter/slice';
 import { Logo, Progress, UIButton, UIInput, UISeparator } from '../../components';
@@ -16,10 +16,11 @@ import { pizzaSelector } from '../../redux/slices/pizzas/slice';
 
 export const Header: React.FC = () => {
   const dispatch = useDispatch();
-  const { totalPrice, totalCount } = useSelector(cartSelector);
+  const { items, totalPrice, totalCount } = useSelector(cartSelector);
   const { isLoaded } = useSelector(pizzaSelector);
   const [value, setValue] = useState('');
   const { pathname } = useLocation();
+  const isMounted = useRef(false);
 
   const updateSearchValue = useCallback(
     debounce((str: string) => {
@@ -32,6 +33,14 @@ export const Header: React.FC = () => {
     setValue(value);
     updateSearchValue(value);
   };
+
+  useEffect(() => {
+    if (isMounted.current) {
+      const json = JSON.stringify(items);
+      localStorage.setItem('cart', json);
+    }
+    isMounted.current = true;
+  }, [items]);
 
   return (
     <header className={styles.header}>

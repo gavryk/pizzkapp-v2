@@ -1,14 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { isEqual } from 'lodash';
 import { calcCartItems } from '../../../utils/calcCartItems';
+import { getCartLS } from '../../../utils/getLocalStorage';
 import { RootState } from '../../store';
 import { CartItem, CartSliceProps } from './types';
 
-const initialState: CartSliceProps = {
-  items: [],
-  totalPrice: 0,
-  totalCount: 0,
-};
+const initialState: CartSliceProps = getCartLS();
 
 const cartSlice = createSlice({
   name: 'cart',
