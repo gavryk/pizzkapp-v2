@@ -35,6 +35,7 @@ export const Home: React.FC = () => {
       dispatch(fetchPizzas({ category, sortBy, searchText, currentPage }));
     }
     isSearch.current = false;
+    window.scrollTo(0, 0);
   }, [dispatch, category, sortBy, searchText, currentPage]);
 
   //Set Query String
