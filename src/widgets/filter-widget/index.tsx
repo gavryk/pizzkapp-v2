@@ -1,5 +1,8 @@
-import React from 'react';
+import clsx from 'clsx';
+import React, { useState } from 'react';
 import { UIButton, UIDropdown } from '../../components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { SortTypes } from '../../redux/slices/filter/types';
 import { catList, sortList } from './model';
 import styles from './styles.module.scss';
@@ -13,9 +16,13 @@ interface FilterProps {
 
 export const FilterWidget: React.FC<FilterProps> = React.memo(
   ({ sortBy, category, onCategory, onSort, bgColor = '#fff' }) => {
+    const [mobVisible, setMobVisible] = useState(false);
+
     return (
-      <>
-        <div className={styles.filterWrapper} style={{ backgroundColor: bgColor }}>
+      <div className={styles.widgetWrapper}>
+        <div
+          className={clsx(styles.filterWrapper, { [styles.active]: mobVisible })}
+          style={{ backgroundColor: bgColor }}>
           <div className={styles.categoriesWrap}>
             <UIButton active={category === 'all' && true} onClick={() => onCategory('all')}>
               All
@@ -32,7 +39,11 @@ export const FilterWidget: React.FC<FilterProps> = React.memo(
           </div>
           <UIDropdown onSetSort={onSort} list={sortList} selected={sortBy} />
         </div>
-      </>
+        <button className={styles.expand} onClick={() => setMobVisible(!mobVisible)}>
+          <FontAwesomeIcon icon={!mobVisible ? faChevronDown : faChevronUp} />{' '}
+          {mobVisible ? 'Hide' : 'Show'} Filters
+        </button>
+      </div>
     );
   },
 );
