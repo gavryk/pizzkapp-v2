@@ -1,11 +1,14 @@
-import React, { Suspense } from 'react';
+import React, { lazy, Suspense } from 'react';
 import { MainLayout } from './layouts';
-import { Home } from './pages';
 import { Route, Routes } from 'react-router-dom';
-import { SinglePizza } from './pages/pizzas/single';
+import Home from './pages/home';
+import { Spinner } from './components';
 
-const Cart = React.lazy(() => import(/* webpackChunkName: "Cart" */ './pages/cart'));
-const NotFound = React.lazy(() => import(/* webpackChunkName: "NotFound" */ './pages/404'));
+const Cart = lazy(() => import(/* webpackChunkName: "Cart" */ './pages/cart'));
+const NotFound = lazy(() => import(/* webpackChunkName: "NotFound" */ './pages/404'));
+const SinglePizza = lazy(
+  () => import(/* webpackChunkName: "SinglePizza" */ './pages/pizzas/single'),
+);
 
 const App: React.FC = () => {
   return (
@@ -15,16 +18,23 @@ const App: React.FC = () => {
         <Route
           path="cart"
           element={
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Spinner />}>
               <Cart />
             </Suspense>
           }
         />
-        <Route path="pizza/:id" element={<SinglePizza />} />
+        <Route
+          path="pizza/:id"
+          element={
+            <Suspense fallback={<Spinner />}>
+              <SinglePizza />
+            </Suspense>
+          }
+        />
         <Route
           path="*"
           element={
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Spinner />}>
               <NotFound />
             </Suspense>
           }

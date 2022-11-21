@@ -12,10 +12,12 @@ import { CartItem } from '../../redux/slices/cart/types';
 import { useAppDispatch } from '../../redux/store';
 import { filterSelector } from '../../redux/slices/filter/selectors';
 import { pizzaSelector } from '../../redux/slices/pizzas/selectors';
+import { settingsSelector } from '../../redux/slices/settings/selectors';
 
-export const Home: React.FC = () => {
+const Home: React.FC = () => {
   const dispatch = useAppDispatch();
-  const { items, isLoaded, limit } = useSelector(pizzaSelector);
+  const { items, limit } = useSelector(pizzaSelector);
+  const { isLoaded } = useSelector(settingsSelector);
   const { category, sortBy, searchText, currentPage } = useSelector(filterSelector);
 
   //First Fatching Pizzas
@@ -83,3 +85,4 @@ export const Home: React.FC = () => {
     </>
   );
 };
+export default Home;

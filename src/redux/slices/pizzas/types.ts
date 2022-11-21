@@ -23,14 +23,7 @@ export type SortByParams = {
   order: string;
 };
 
-// export enum Status {
-//   LOADING = 'loading',
-//   SUCCESS = 'success',
-//   ERROR = 'error',
-// }
-
 export interface PizzaSliceState {
   items: Pizza[];
   limit: number;
-  isLoaded: string;
 }

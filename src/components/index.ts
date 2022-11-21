@@ -9,3 +9,4 @@ export * from './ui-separator';
 export * from './ui-input';
 export * from './pagination';
 export * from './progress';
+export * from './spinner';

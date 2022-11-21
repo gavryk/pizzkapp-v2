@@ -3,11 +3,11 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { UIButton, UIGrid, UITypography } from '../../../components';
-import { setStatus } from '../../../redux/slices/pizzas/slice';
+import { Spinner, UIButton, UIGrid, UITypography } from '../../../components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import styles from '../../../styles/pages/Single.module.scss';
+import { setStatus } from '../../../redux/slices/settings/slice';
 
 interface PizzaProps {
   id: string;
@@ -18,7 +18,7 @@ interface PizzaProps {
   sizes: number[];
 }
 
-export const SinglePizza: React.FC = () => {
+const SinglePizza: React.FC = () => {
   const dispatch = useDispatch();
   const [pizza, setPizza] = useState<PizzaProps>();
   const { id } = useParams();
@@ -44,7 +44,7 @@ export const SinglePizza: React.FC = () => {
   return (
     <>
       {!pizza ? (
-        <UITypography variant="h2">Loading...</UITypography>
+        <Spinner />
       ) : (
         <div className={styles.singlePage}>
           <UIGrid columns={2} gridGap={5}>
@@ -79,3 +79,5 @@ export const SinglePizza: React.FC = () => {
     </>
   );
 };
+
+export default SinglePizza;

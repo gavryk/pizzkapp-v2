@@ -11,13 +11,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { useCallback } from 'react';
 import { useState } from 'react';
-import { pizzaSelector } from '../../redux/slices/pizzas/selectors';
 import { cartSelector } from '../../redux/slices/cart/selectors';
+import { settingsSelector } from '../../redux/slices/settings/selectors';
 
 export const Header: React.FC = () => {
   const dispatch = useDispatch();
   const { items, totalPrice, totalCount } = useSelector(cartSelector);
-  const { isLoaded } = useSelector(pizzaSelector);
+  const { isLoaded } = useSelector(settingsSelector);
   const [value, setValue] = useState('');
   const { pathname } = useLocation();
   const isMounted = useRef(false);
