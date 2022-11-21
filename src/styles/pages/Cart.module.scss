@@ -3,6 +3,12 @@
   max-width: 98%;
   margin: 0 auto;
   padding: var(--base--spaces--13) 0;
+  @media (max-width: 768px) {
+    padding: var(--base--spaces--6) 0;
+  }
+  @media (max-width: 576px) {
+    padding: var(--base--spaces--3) 0;
+  }
 }
 
 .emptyCart {

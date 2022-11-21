@@ -3,13 +3,20 @@
   grid-template-columns: repeat(2, auto);
   justify-content: space-between;
   align-items: center;
-  column-gap: 15px;
+  column-gap: var(--base--spaces--4);
   padding: var(--base--spaces--10) 0;
+  @media (max-width: 576px) {
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: var(--base--spaces--5);
+  }
 }
 .count,
 .price {
   span {
-    font-size: 22px;
+    font-size: var(--base--font--size--h4-sm);
+    @media (max-width: 576px) {
+      font-size: var(--base--font--size--h5);
+    }
   }
 }
 
