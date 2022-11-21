@@ -1,20 +1,12 @@
 import React, { useCallback, useEffect } from 'react';
-import qs from 'qs';
 import { useSelector } from 'react-redux';
 import { UICard, UIGrid, UITypography, SkeletonCard, Pagination } from '../../components';
-import {
-  setCategory,
-  setCurrentPage,
-  setSortBy,
-  setFilters,
-} from '../../redux/slices/filter/slice';
+import { setCategory, setCurrentPage, setSortBy } from '../../redux/slices/filter/slice';
 import { fetchPizzas } from '../../redux/slices/pizzas/asyncAction';
 import { FilterWidget } from '../../widgets';
-import { useNavigate } from 'react-router-dom';
-import { useRef } from 'react';
 import { addItem } from '../../redux/slices/cart/slice';
 import { SortTypes } from '../../redux/slices/filter/types';
-import { catList, sortList } from '../../widgets/filter-widget/model';
+import { catList } from '../../widgets/filter-widget/model';
 import { Pizza } from '../../redux/slices/pizzas/types';
 import { CartItem } from '../../redux/slices/cart/types';
 import { useAppDispatch } from '../../redux/store';
@@ -22,52 +14,15 @@ import { filterSelector } from '../../redux/slices/filter/selectors';
 import { pizzaSelector } from '../../redux/slices/pizzas/selectors';
 
 export const Home: React.FC = () => {
-  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { items, isLoaded, limit } = useSelector(pizzaSelector);
   const { category, sortBy, searchText, currentPage } = useSelector(filterSelector);
-  const isSearch = useRef(false);
-  const isMounted = useRef(false);
 
   //First Fatching Pizzas
   useEffect(() => {
-    if (!isSearch.current) {
-      dispatch(fetchPizzas({ category, sortBy, searchText, currentPage }));
-    }
-    isSearch.current = false;
+    dispatch(fetchPizzas({ category, sortBy, searchText, currentPage }));
     window.scrollTo(0, 0);
   }, [dispatch, category, sortBy, searchText, currentPage]);
-
-  //Set Query String
-  useEffect(() => {
-    if (isMounted.current) {
-      const queryString = qs.stringify({
-        sortBy: sortBy.type,
-        category,
-        searchText,
-        currentPage,
-      });
-      navigate(`/?${queryString}`);
-    }
-    isMounted.current = true;
-  }, [category, sortBy, searchText, currentPage, navigate]);
-
-  //Parse Query String and set in state
-  useEffect(() => {
-    if (window.location.search) {
-      const params = qs.parse(window.location.search.substring(1));
-      const sortParams = sortList.find((obj) => obj.type === params.sortBy);
-      dispatch(
-        setFilters({
-          sortBy: Object(sortParams),
-          category: params.category !== 'all' ? Number(params.category) : 'all',
-          searchText: String(params.searchText),
-          currentPage: Number(params.currentPage),
-        }),
-      );
-      isSearch.current = true;
-    }
-  }, [dispatch]);
 
   const selectCatHandler = useCallback(
     (cat: number | string) => {
