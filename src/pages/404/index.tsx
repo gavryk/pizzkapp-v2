@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { UIButton, UITypography } from '../../components';
-import styles from './styles.module.scss';
+import styles from '../../styles/pages/NotFound.module.scss';
 
-export const NotFound: React.FC = () => {
+const NotFound: React.FC = () => {
   return (
     <div className={styles.page404}>
       <UITypography variant="h2" fontWeight="bold">
@@ -17,3 +17,5 @@ export const NotFound: React.FC = () => {
     </div>
   );
 };
+
+export default NotFound;

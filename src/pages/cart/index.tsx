@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { cartSelector } from '../../redux/slices/cart/selectors';
 
-export const Cart: React.FC = () => {
+const Cart: React.FC = () => {
   const { items, totalCount, totalPrice } = useSelector(cartSelector);
 
   return (
@@ -42,3 +42,5 @@ export const Cart: React.FC = () => {
     </>
   );
 };
+
+export default Cart;
